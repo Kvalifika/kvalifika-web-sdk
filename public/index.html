@@ -1,12 +1,14 @@
 <head>
   <script>
     const checkSession = async (sessionId) => {
+      // სესსიის გადამოწმება, გაიარა თუ არა სტეპზე ვალიდაცია
       const data = await fetch(`/check-session/${sessionId}`)
       const body = await data.json()
       return JSON.parse(body)
     }
 
     const nextAction = ({ document: documentStatus, liveness }) => {
+      // ამოწმებს თუ წარმატებით მოხდა გავლა ამისამართებს შემდეგ სტეპზე
       if(documentStatus && liveness) {
         const frame = document.getElementById('myFrame')
         frame.remove()
