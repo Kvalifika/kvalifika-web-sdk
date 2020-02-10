@@ -7,8 +7,6 @@ dotenv.config({ path: './.env' })
 
 const app = express()
 
-console.log()
-
 app.use(bodyParser.json())
 app.use(cors())
 
