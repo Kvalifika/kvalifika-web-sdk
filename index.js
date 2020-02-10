@@ -22,7 +22,7 @@ app.get('/check-session/:sessionId', (req, res) => {
   // in options we need to pass sessionId as parameter
   // and our secret token as authorization header
   const options = {
-    url: `https://apidev.kyc.ge/verification/status/${sessionId}`,
+    url: `${process.env.KYC_API_HOST}/verification/status/${sessionId}`,
     headers: { Authorization }
   };
 
