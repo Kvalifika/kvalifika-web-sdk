@@ -7,23 +7,38 @@
     }
 
     const nextAction = ({ document: documentStatus, liveness }) => {
-      if(documentStatus && liveness) {
+      if (documentStatus && liveness) {
         const frame = document.getElementById('myFrame')
         frame.remove()
-        
+
         const p = document.createElement("p")
         p.innerHTML = "success"
         document.body.appendChild(p)
       }
     }
     window.addEventListener('message', async event => {
-      const body = await checkSession(event.data)
-      nextAction(body)
+      if (event.data.finished) {
+        // event.data.sessionId is session Id
+        const body = await checkSession(event.data.sessionId)
+        nextAction(body)
+      }
+      if (event.data.isLivenessFinished) {
+        // do something about liveness
+      } else {
+        // ...
+      }
+      if (event.data.isDocumentFinished) {
+        // event.data.documentType returns enum type 'ID' or 'PASSPORT'
+      } else {
+        //...
+      }
+
     }); 
   </script>
 </head>
+
 <body style="width: 100%; height: 100%;">
-  <iframe id='myFrame' src="https://turbo.kyc.ge/" allow="camera" width="80%" height="80%">
+  <iframe id='myFrame' src="http://localhost:3000/" allow="camera" width="80%" height="80%">
 
   </iframe>
 </body>
