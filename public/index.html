@@ -8,6 +8,9 @@
     }
 
     const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } }) => {
+      // Liveness Status is 0 if its success and fail if it is 1
+      // faceMatched is boolean if true face matched document
+      // documentValid is boolean if true document is valid
       // ამოწმებს თუ წარმატებით მოხდა გავლა ამისამართებს შემდეგ სტეპზე
       if (faceMatched && !livenessStatus && documentValid) {
         const frame = document.getElementById('myFrame')
