@@ -23,7 +23,6 @@ const requestClose = (sessionId) => {
   };
 
   request(closeOptions, (err, response, body) => {
-    console.log("TCL: requestClose -> body", body)
     if(err) {
       // handle error
     } else {
