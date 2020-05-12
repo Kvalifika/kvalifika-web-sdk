@@ -2,17 +2,18 @@
 ## Kvalifika web SDK
 
 
-პროექტის გასაშვებად ჯერ ვაყენებთ დამხმარე ბიბლიოთეკებს
+Install dependencies
 
 ``` yarn  install```
 
-პროექტის გასაშვებად ვუშვებთ შემდეგ ბრძანებას
+Start project
 
 ``` yarn start ```
 
 
-## 
+#### Files
 
--  .env ფაილში ინახება სატესტო (არა რეალური გარემოს) SECRET_TOKEN, KYC_API_HOST
--  public/index.html  ში ხდება ფრეიმის ჩატვირთვა https://dev.demo.kyc.ge
--  index.js (მაგალითი node.js -სზე) როგორ ხდება ბექიდან მომხარებლის სესიის გადამოწმება
+-  ```.env``` Credentials for development & testing purposes  see : SECRET_TOKEN, KYC_API_HOST
+-  ```public/index.html``` Kvalifika frame loading and set in html  
+-  ```public/js/index.js``` Handling session during process.
+-  ```index.js``` Node.js sample to check session and close session data in Kvalifika server
