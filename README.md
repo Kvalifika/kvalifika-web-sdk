@@ -1,14 +1,11 @@
 
 ## Kvalifika web SDK
 
+#### Getting started
 
-Install dependencies
+- Install dependencies ``` yarn  install```\
+- Start project ``` yarn start ```
 
-``` yarn  install```
-
-Start project
-
-``` yarn start ```
 
 
 #### Files
@@ -22,3 +19,8 @@ Start project
 #### Kvalifika backend API 
 
 - https://apidev.kyc.ge/api
+
+
+### Contact us
+
+Got any questions? Don't hesitate to reach out @ [kvalifika.com](https://kvalifika.com)
