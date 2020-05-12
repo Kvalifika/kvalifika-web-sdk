@@ -17,3 +17,8 @@ Start project
 -  ```public/index.html``` Kvalifika frame loading and set in html  
 -  ```public/js/index.js``` Handling session during process.
 -  ```index.js``` Node.js sample to check session and close session data in Kvalifika server
+
+
+#### Kvalifika backend API 
+
+- https://apidev.kyc.ge/api
