@@ -1,17 +1,17 @@
 <head>
   <script>
+     // სესსიის გადამოწმება, გაიარა თუ არა კონკრეტულ ბიჯზე (სტეფზე) ვალიდაცია
     const checkSession = async (sessionId) => {
-      // სესსიის გადამოწმება, გაიარა თუ არა სტეპზე ვალიდაცია
       const data = await fetch(`/check-session/${sessionId}`)
       const body = await data.json()
       return JSON.parse(body)
     }
 
+    // Liveness Status is 0 if its success and fail if it is 1
+    // property: faceMatched is boolean if true face matched document
+    // property: documentValid is boolean if true document is valid
+    // ამოწმებს თუ წარმატებით მოხდა გავლა ამისამართებს შემდეგ ბიჯზე (სტეპზე)
     const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } }) => {
-      // Liveness Status is 0 if its success and fail if it is 1
-      // faceMatched is boolean if true face matched document
-      // documentValid is boolean if true document is valid
-      // ამოწმებს თუ წარმატებით მოხდა გავლა ამისამართებს შემდეგ სტეპზე
       if (faceMatched && !livenessStatus && documentValid) {
         const frame = document.getElementById('myFrame')
         frame.remove()
@@ -21,10 +21,12 @@
         document.body.appendChild(p)
       }
     }
+
+    // თითოეულ ბიჯზე, ლაივნესი, პირადობის სკანირებაზე თუ პასპოსრტვის სკანირებაზე შემოდის
     window.addEventListener('message', async event => {
       console.log("TCL: event", event.data)
       if (event.data.finished) {
-        // event.data.sessionId is session Id
+        // აქ მოდის სერვერიდან მოსული სესიის შესახებ სრული ინფორმაცია
         const body = await checkSession(event.data.sessionId)
         nextAction(body)
       }
@@ -43,8 +45,9 @@
   </script>
 </head>
 
-<body style="width: 100%; height: 100%;">
-  <iframe id='myFrame' src="https://pasha.demo.kyc.ge/" allow="camera" width="80%" height="80%">
+<body style="width: 100%; height: 100%; margin:0px">
+  <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
+  <iframe id='myFrame' src="https://dev.demo.kyc.ge"  style="width: 100vw; height: 100vh" allow="camera">
 
   </iframe>
 </body>

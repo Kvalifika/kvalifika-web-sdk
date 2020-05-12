@@ -12,9 +12,10 @@ app.use(cors())
 
 app.use(express.static('public'))
 
-// This is only for demo purposes store this token inside enviroment variables and do not show it to anyone
 const Authorization = process.env.SECRET_TOKEN
 
+// აკეთებს სესიაზე მონაცემების დახურვას, რომ აღარ მოხდეს 
+// ხელმოერედ გამოძახება და ინფორმაციის წაღება
 const requestClose = (sessionId) => {
   const closeOptions = {
     url: `${process.env.KYC_API_HOST}/verification/close/${sessionId}`,
@@ -31,7 +32,8 @@ const requestClose = (sessionId) => {
   })
 }
 
-// Here we register rest route to check users session status
+
+// ხდება კვალიფიკასთან სესიის გადამოწმება და იფორმაციიის გამოთხოვა
 app.get('/check-session/:sessionId', (req, res) => {
   const sessionId = req.params.sessionId
 
