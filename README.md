@@ -1,7 +1,10 @@
 
-## Kvalifika web SDK & web iFrame solution
+<p align="left">
+  <a href="http://kvalifika.com/" target="blank"><img src="https://landen.imgix.net/bdgkclkkfohb/assets/6crsydul.png?w=244" alt="Kvalifika logo" /></a>
+</p>
 
-![Kvalifika](https://landen.imgix.net/bdgkclkkfohb/assets/6crsydul.png?w=244)
+
+## Kvalifika web SDK & web iFrame solution
 
 Seamless customer on-boarding through facial authentication
 
