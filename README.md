@@ -1,5 +1,5 @@
 
-## Kvalifika web SDK
+## Kvalifika Documentation
 
 Seamless customer on-boarding through facial authentication
 
@@ -7,6 +7,8 @@ To try out the end-user facing verification flow, simply navigate to [https://de
 
 Kvalifika web SDK, is a simple and customisable library which helps to integrate with Kvalifika solution. 
 Use this to simply include Kvalifika flow. You don't need any backend on your side your own for this including JS SDK to your website.
+
+We Also provide a web iFrame solution for best integration into your web app.
 
 #### Getting started
 
