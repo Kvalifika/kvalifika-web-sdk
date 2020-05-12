@@ -1,5 +1,5 @@
 
-## Kvalifika Documentation
+## Kvalifika web SDK & web iFrame solution
 
 Seamless customer on-boarding through facial authentication
 
