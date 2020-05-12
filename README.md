@@ -1,6 +1,8 @@
 
 ## Kvalifika web SDK & web iFrame solution
 
+![Kvalifika](https://landen.imgix.net/bdgkclkkfohb/assets/6crsydul.png?w=244)
+
 Seamless customer on-boarding through facial authentication
 
 To try out the end-user facing verification flow, simply navigate to [https://dev.demo.kyc.ge](https://dev.demo.kyc.ge) - this will start the verification flow in your browser.
@@ -14,7 +16,6 @@ We Also provide a web iFrame solution for best integration into your web app.
 
 - Install dependencies ``` yarn  install```
 - Start project ``` yarn start ```
-
 
 
 #### Files
