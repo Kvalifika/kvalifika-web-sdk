@@ -14,8 +14,7 @@ app.use(express.static('public'))
 
 const Authorization = process.env.SECRET_TOKEN
 
-// აკეთებს სესიაზე მონაცემების დახურვას, რომ აღარ მოხდეს 
-// ხელმოერედ გამოძახება და ინფორმაციის წაღება
+// Close identification data stored on Kvalifika server
 const requestClose = (sessionId) => {
   const closeOptions = {
     url: `${process.env.KYC_API_HOST}/verification/close/${sessionId}`,
@@ -33,7 +32,7 @@ const requestClose = (sessionId) => {
 }
 
 
-// ხდება კვალიფიკასთან სესიის გადამოწმება და იფორმაციიის გამოთხოვა
+// Checks identification data by seesionId on Kvalifika server
 app.get('/check-session/:sessionId', (req, res) => {
   const sessionId = req.params.sessionId
 
@@ -50,7 +49,7 @@ app.get('/check-session/:sessionId', (req, res) => {
       // handle error
       res.status(400).json(err)
     } else {
-      // handle success
+      // exectutes to close idetification data on Kvalifika server 
       requestClose(sessionId)
       res.status(200).json(body)
     }

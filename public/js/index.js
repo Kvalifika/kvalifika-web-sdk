@@ -1,43 +1,49 @@
 
-// სესსიის გადამოწმება, გაიარა თუ არა კონკრეტულ ბიჯზე (სტეფზე) ვალიდაცია
+// Performs a session check from your backend with your production SECRET_KEY
+// See index.js file
 const checkSession = async (sessionId) => {
   const data = await fetch(`/check-session/${sessionId}`)
   const body = await data.json()
   return JSON.parse(body)
 }
 
-// Liveness Status is 0 if its success and fail if it is 1
-// property: faceMatched is boolean if true face matched document
-// property: documentValid is boolean if true document is valid
-// ამოწმებს თუ წარმატებით მოხდა გავლა ამისამართებს შემდეგ ბიჯზე (სტეპზე)
+// livenessStatus: 0/1/2. 0 = passed, 1 = undetermined, 2 = undetermined. 
+// 3D FaceMap came from a session where there was a live human being if and only if the livenessStatus is 0.
+// ..............................................
+// faceMatched is boolean if true face matched document
+// documentValid is boolean if true document is valid
 const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } }) => {
+
+  // Handle your results & remove frame, or you can do anything here
   if (faceMatched && !livenessStatus && documentValid) {
     const frame = document.getElementById('myFrame')
     frame.remove()
-
     const p = document.createElement("p")
     p.innerHTML = "success"
     document.body.appendChild(p)
   }
 }
 
-// თითოეულ ბიჯზე, ლაივნესი, პირადობის სკანირებაზე თუ პასპოსრტვის სკანირებაზე შემოდის
+// Event listener, listens each step is web flow. 
+// If full process has been finished, you can check here 
+// each step if finished liveness or document scanning
 window.addEventListener('message', async event => {
-  console.log("TCL: event", event.data)
+  
+  // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
-    // აქ მოდის სერვერიდან მოსული სესიის შესახებ სრული ინფორმაცია
+    // 
     const body = await checkSession(event.data.sessionId)
     nextAction(body)
   }
+  
+  // Checks if liveness step has been finished
   if (event.data.isLivenessFinished) {
-    // do something about liveness
-  } else {
-    // ...
+  // Do something if liveness step has been finished
   }
+  
+  // Checks is document scanning step has been finsihed
   if (event.data.isDocumentFinished) {
     // event.data.documentType returns enum type 'ID' or 'PASSPORT'
-  } else {
-    //...
   }
 
 })
