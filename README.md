@@ -15,6 +15,10 @@ Use this to simply include Kvalifika flow. You don't need any backend on your si
 
 We Also provide a web iFrame solution for best integration into your web app.
 
+#### Features 
+Visit our complete feature list to better know what we have for your business
+[Feature list](https://github.com/Kvalifika/kvalifika-web-sdk/blob/master/documentation/Features.md)
+
 #### Getting started
 
 - Install dependencies ``` yarn  install```
