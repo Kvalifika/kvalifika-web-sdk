@@ -11,6 +11,16 @@
 - User activities
 - IP whitelisting  
 
+**Document procesing**
+- Data extraction OCR 
+- Auto Sign extraxtion from document
+- Auto face extraction from document
+- Document enhancement
+- Document blur check
+- MRZ reading
+
+**AML**
+- AML(anti-money-laundering) client can be checked against global PEPS and sanctions lists.
 
 **Kvalifika Api**
 
