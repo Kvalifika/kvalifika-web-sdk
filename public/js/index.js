@@ -16,7 +16,7 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 
   // Handle your results & remove frame, or you can do anything here
   if (faceMatched && !livenessStatus && documentValid) {
-    const frame = document.getElementById('myFrame')
+    const frame = document.getElementById('kvalifikaiFrame')
     frame.remove()
     const p = document.createElement("p")
     p.innerHTML = "success"
