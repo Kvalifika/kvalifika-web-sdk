@@ -40,10 +40,10 @@ Visit our complete feature list to better know what we have for your business
 #### Language support
 
 Web iFrame supports now two languages you English and Georgian.
-You can manage it with parameters en & geo
+You can manage it with lang parameter: en || geo
 
 ```html 
-<iframe id='kvalifikaiFrame' src="https://staging.demo.kyc.ge/en"  style="width: 100vw; height: 100vh" allow="camera" />
+https://staging.demo.kyc.ge?lang=en
 ```
 #### Handling & listening Kvalifika web iFrame
 

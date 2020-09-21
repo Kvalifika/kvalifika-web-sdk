@@ -1,10 +1,37 @@
 <html>
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script src="./js/index.js"></script>
+    <script>
+
+      const generateVerification = async () => {
+
+        const { data } = await axios({
+          url: 'https://apistaging.kvalifika.com/verification/generate',
+          method: 'POST',
+          data: {
+            appId: '123456789',
+          },
+          headers: {
+            Originn: 'https://staging.demo.kyc.ge',
+          }
+        })
+
+        const iframe = document.createElement('iframe')
+        iframe.setAttribute('id', 'kvalifikaIframe')
+        iframe.setAttribute('src', data.url)
+        iframe.setAttribute('style', 'width: 100vw; height: 100vh')
+        iframe.setAttribute('allow', 'camera')
+        document.getElementById('kvalifika-frame-container').appendChild(iframe)
+
+      }
+      generateVerification()
+    </script>
   </head>
   
   <body style="margin:0px">
     <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-    <iframe id='kvalifikaiFrame' src="https://staging.demo.kyc.ge"  style="width: 100vw; height: 100vh" allow="camera" />
+    <div id='kvalifika-frame-container' />
   </body>
 </html>
