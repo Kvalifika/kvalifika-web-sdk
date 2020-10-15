@@ -49,7 +49,6 @@ app.get('/check-session/:sessionId', (req, res) => {
       // handle error
       res.status(400).json(err)
     } else {
-      // exectutes to close idetification data on Kvalifika server 
       requestClose(sessionId)
       res.status(200).json(body)
     }
