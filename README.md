@@ -96,6 +96,16 @@ window.addEventListener('message', async event => {
   if (event.data.isDocumentFinished) {
     // event.data.documentType returns enum type 'ID' or 'PASSPORT'
   }
+  
+  // Checkes is session session has been closed
+  if (event.data.isClosed) {
+    
+  }
+  
+  // checks if retry step has been closed
+  if (event.data.isRetryClosed) {
+    
+  }
 
 })
 ```
