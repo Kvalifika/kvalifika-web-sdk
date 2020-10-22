@@ -35,7 +35,7 @@ Visit our complete feature list to better know what we have for your business
 
 #### Kvalifika backend API 
 
-- https://api-staging.kyc.ge/api
+- https://apistaging.kvalifika.com/api/
 
 #### Language support
 
