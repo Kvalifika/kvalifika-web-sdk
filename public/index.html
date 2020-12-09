@@ -8,13 +8,13 @@
       const generateVerification = async () => {
 
         const { data } = await axios({
-          url: 'https://apistaging.kvalifika.com/verification/generate',
+          url: 'https://api.kyc.ge/verifi:cation/generate',
           method: 'POST',
           data: {
-            appId: '123456789',
+                  appId: '<Application_Id>',
           },
           headers: {
-            Originn: 'https://staging.demo.kyc.ge',
+            Originn: 'https://demo.kyc.ge',
           }
         })
 

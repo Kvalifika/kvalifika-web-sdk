@@ -8,7 +8,7 @@
 
 Seamless customer on-boarding through facial authentication
 
-To try out the end-user facing verification flow, simply navigate to [https://staging.demo.kyc.ge](https://staging.demo.kyc.ge) - this will start the verification flow in your browser.
+To try out the end-user facing verification flow, simply navigate to [https://demo.kyc.ge](https://demo.kyc.ge) - this will start the verification flow in your browser.
 
 Kvalifika web SDK, is a simple and customisable library which helps to integrate with Kvalifika solution. 
 Use this to simply include Kvalifika flow. 
@@ -20,6 +20,14 @@ Visit our complete feature list to better know what we have for your business
 [Feature list](https://github.com/Kvalifika/kvalifika-web-sdk/blob/master/documentation/Features.md)
 
 #### Getting started
+
+First you need to signup and get tokens your APP_ID and SECRET_TOKEN from http://admin.kvalifika.com
+Tokens you can find Setting -> Security -> Credentials
+
+APP_ID you should use in index.html
+SECRET_TOKEN you should use in index.js file
+
+##### Installing dependencies and launch sample application
 
 - Install dependencies ``` yarn  install```
 - Start project ``` yarn start ```
@@ -35,7 +43,7 @@ Visit our complete feature list to better know what we have for your business
 
 #### Kvalifika backend API 
 
-- https://apistaging.kvalifika.com/api/
+- https://api.kyc.ge/api/
 
 #### Language support
 
@@ -43,7 +51,7 @@ Web iFrame supports now two languages you English and Georgian.
 You can manage it with lang parameter: en || geo
 
 ```html 
-https://staging.demo.kyc.ge?lang=en
+https://demo.kyc.ge?lang=en
 ```
 #### Handling & listening Kvalifika web iFrame
 
