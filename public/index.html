@@ -8,22 +8,32 @@
       const generateVerification = async () => {
 
         const { data } = await axios({
-          url: 'https://api.kyc.ge/verifi:cation/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-                  appId: '<Application_Id>',
+            appId: '_2erTMQlyEBww_t2OS_',
           },
           headers: {
-            Originn: 'https://demo.kyc.ge',
+            Originn: 'https://dev.demo.kyc.ge',
           }
         })
 
+        console.log(data)
+
+        // console.log(data)
+
         const iframe = document.createElement('iframe')
         iframe.setAttribute('id', 'kvalifikaIframe')
-        iframe.setAttribute('src', data.url)
+        iframe.setAttribute('src', `http://localhost:3000/${data.url.split("/")[3]}`)
         iframe.setAttribute('style', 'width: 100vw; height: 100vh')
         iframe.setAttribute('allow', 'camera')
-        document.getElementById('kvalifika-frame-container').appendChild(iframe)
+        iframe.setAttribute('allowfullscreen', true)
+        
+        const container = document.querySelector("#kvalifika-iframe-container")
+        container.appendChild(iframe)
+
+        // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
+        // document.getElementById('kvalifika-frame-container').appendChild(iframe)
 
       }
       generateVerification()
@@ -32,6 +42,8 @@
   
   <body style="margin:0px">
     <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-    <div id='kvalifika-frame-container' />
+    <div id="kvalifika-iframe-container">
+
+    </div>
   </body>
 </html>

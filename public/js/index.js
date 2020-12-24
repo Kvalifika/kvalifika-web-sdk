@@ -16,8 +16,6 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 
   // Handle your results & remove frame, or you can do anything here
   if (faceMatched && !livenessStatus && documentValid) {
-    const frame = document.getElementById('kvalifikaiFrame')
-    frame.remove()
     const p = document.createElement("p")
     p.innerHTML = "success"
     document.body.appendChild(p)
@@ -28,12 +26,13 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 // If full process has been finished, you can check here 
 // each step if finished liveness or document scanning
 window.addEventListener('message', async event => {
+  console.log(event);
   
   // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
     // 
-    const body = await checkSession(event.data.sessionId)
-    nextAction(body)
+    const body = await checkSession(event.data.sessionId);
+    nextAction(body);
   }
   
   // Checks if liveness step has been finished
