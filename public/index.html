@@ -6,7 +6,11 @@
     <script>
 
       const generateVerification = async () => {
-
+        /* Headers Originn should be url whatever you have added in admin panel Settings -> Security -> CORS 
+         Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested 
+         from another domain outside the domain from which the first resource was served
+         NOTE: HOST SHOULD BE SECURED WITH SSL certificate
+        */
         const { data } = await axios({
           url: 'https://api.kyc.ge/verifi:cation/generate',
           method: 'POST',
@@ -14,10 +18,19 @@
                   appId: '<Application_Id>',
           },
           headers: {
-            Originn: 'https://demo.kyc.ge',
+            Originn: '<https://example.com>',
           }
         })
 
+         /* Width and Height for Iframe should be 100 x 100 for this reasons. 
+          1. With a smaller-than-fullscreen popover, Users perceive a very simple alignment task. 
+          A larger Frame creates a very "in your face" experience that is much harder to align due to the physical surface area that needs to be covered by the 
+          User's eyes in order to determine proper alignment. To understand this effect, try opening your tablet's built-in selfie camera and hold it a foot from your face.  
+          2. Algorithms are trained on real Users that are looking almost directly into the camera. The algorithms require this for good accuracy.
+          3. Compensate for the extremely broad surface area of combinations of platforms, platform versions, screen sizes and densities, camera qualities and aspect differences. 
+          Instead of us requiring each developer to figure all of this out themselves, FaceTec SDks do all of the work for you and renders at the right size and in the right location on every device/platform combination
+        */
+        
         const iframe = document.createElement('iframe')
         iframe.setAttribute('id', 'kvalifikaIframe')
         iframe.setAttribute('src', data.url)
@@ -31,7 +44,7 @@
   </head>
   
   <body style="margin:0px">
-    <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
+    <!-- Loads iframe in this container -->
     <div id='kvalifika-frame-container' />
   </body>
 </html>
