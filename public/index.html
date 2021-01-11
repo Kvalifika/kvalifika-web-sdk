@@ -1,5 +1,11 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="KYC" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script src="./js/index.js"></script>
@@ -18,13 +24,13 @@
           }
         })
 
-        console.log(data)
+        console.log('დაგენერირებული ვერიფიკაციის ID ----->', data.url.split("=")[1])
 
         // console.log(data)
 
         const iframe = document.createElement('iframe')
         iframe.setAttribute('id', 'kvalifikaIframe')
-        iframe.setAttribute('src', `https://dev.demo.kyc.ge/${data.url.split("/")[3]}`)
+        iframe.setAttribute('src', `${data.url}`)
         iframe.setAttribute('style', 'width: 100vw; height: 100vh')
         iframe.setAttribute('allow', 'camera')
         iframe.setAttribute('allowfullscreen', true)
