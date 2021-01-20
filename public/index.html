@@ -1,55 +1,56 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="KYC" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script src="./js/index.js"></script>
     <script>
-
       const generateVerification = async () => {
+        try {
+          const { data } = await axios({
+            url: "https://apidev.kvalifika.com/verification/generate",
+            method: "POST",
+            data: {
+              appId: "100641d7-56c3-4644-8f40-b5ef26150bbb",
+            },
+            headers: {
+              Originn: "https://dev.demo.kyc.ge",
+            },
+          });
 
-        const { data } = await axios({
-          url: 'https://apidev.kvalifika.com/verification/generate',
-          method: 'POST',
-          data: {
-            appId: '_2erTMQlyEBww_t2OS_',
-          },
-          headers: {
-            Originn: 'https://dev.demo.kyc.ge',
-          }
-        })
+          const iframe = document.createElement("iframe");
+          iframe.setAttribute("id", "kvalifikaIframe");
+          iframe.setAttribute("src", `${data.url}`);
+          iframe.setAttribute("style", "width: 100vw; height: 100vh");
+          iframe.setAttribute("allow", "camera");
+          iframe.setAttribute("allowfullscreen", true);
+          iframe.setAttribute("scrolling", "yes");
 
-        console.log('დაგენერირებული ვერიფიკაციის ID ----->', data.url.split("=")[1])
+          const container = document.querySelector(
+            "#kvalifika-iframe-container"
+          );
+          container.appendChild(iframe);
 
-        // console.log(data)
-
-        const iframe = document.createElement('iframe')
-        iframe.setAttribute('id', 'kvalifikaIframe')
-        iframe.setAttribute('src', `${data.url}`)
-        iframe.setAttribute('style', 'width: 100vw; height: 100vh')
-        iframe.setAttribute('allow', 'camera')
-        iframe.setAttribute('allowfullscreen', true)
-        
-        const container = document.querySelector("#kvalifika-iframe-container")
-        container.appendChild(iframe)
-
-        // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
-        // document.getElementById('kvalifika-frame-container').appendChild(iframe)
-
-      }
-      generateVerification()
+          // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
+          // document.getElementById('kvalifika-frame-container').appendChild(iframe)
+        } catch (error) {
+          console.log(error)
+        }
+      };
+      generateVerification();
     </script>
   </head>
-  
-  <body style="margin:0px">
-    <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-    <div id="kvalifika-iframe-container">
 
-    </div>
+  <body style="margin: 0px">
+    <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
+    <div id="kvalifika-iframe-container"></div>
   </body>
 </html>
