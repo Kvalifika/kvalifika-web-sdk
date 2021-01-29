@@ -15,20 +15,35 @@
     <script>
       const generateVerification = async () => {
         try {
-          const { data } = await axios({
-            url: "https://apidev.kvalifika.com/verification/generate",
-            method: "POST",
+          // const { data } = await axios({
+          //   url: "https://apistaging.kvalifika.com/verification/generate",
+          //   method: "POST",
+          //   data: {
+          //     appId: "4a94a7af-a2bb-4859-8273-923442973a8c",
+          //   },
+          //   headers: {
+          //     Originn: "https://staging.demo.kyc.ge",
+          //   },
+          // });
+
+          const { data: pashaData } = await axios({
+            url: 'https://apistaging.kvalifika.com/verification/generate',
+            method: 'POST',
             data: {
-              appId: "100641d7-56c3-4644-8f40-b5ef26150bbb",
+              appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
             },
             headers: {
-              Originn: "https://dev.demo.kyc.ge",
-            },
-          });
+              Originn: 'https://kyc.ge',
+            }
+          })
+
+          // console.log(pashaData)
+
+          // // console.log(pashaData)
 
           const iframe = document.createElement("iframe");
           iframe.setAttribute("id", "kvalifikaIframe");
-          iframe.setAttribute("src", `${data.url}`);
+          iframe.setAttribute("src", `${pashaData.url}`);
           iframe.setAttribute("style", "width: 100vw; height: 100vh");
           iframe.setAttribute("allow", "camera");
           iframe.setAttribute("allowfullscreen", true);
