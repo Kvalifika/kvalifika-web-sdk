@@ -13,45 +13,53 @@
 
     <script src="./js/index.js"></script>
     <script>
+
       const generateVerification = async () => {
         try {
           const { data } = await axios({
-            url: "https://apistaging.kvalifika.com/verification/generate",
+            url: "https://apidev.kvalifika.com/verification/generate",
             method: "POST",
             data: {
-              appId: "4a94a7af-a2bb-4859-8273-923442973a8c",
+              appId: "8c54701a-2a82-494c-ba27-bf53cee8aa08",
             },
             headers: {
-              Originn: "https://staging.demo.kyc.ge",
+              Originn: "https://vobi.ge",
             },
           });
 
           console.log(data)
 
-          const { data: pashaData } = await axios({
-            url: 'https://apistaging.kvalifika.com/verification/generate',
-            method: 'POST',
-            data: {
-              appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
-            },
-            headers: {
-              Originn: 'https://kyc.ge',
-            }
-          })
+          // const { data: pashaData } = await axios({
+          //   url: 'https://apistaging.kvalifika.com/verification/generate',
+          //   method: 'POST',
+          //   data: {
+          //     appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
+          //   },
+          //   headers: {
+          //     Originn: 'https://kyc.ge',
+          //   }
+          // })
 
-          console.log(pashaData)
+          // console.log(pashaData)
+
+          const sessionId = data.url.split("=")[1]
+          console.log(sessionId)
+          // console.log(sessionId)
+
+          console.log(data.url)
+
+          console.log(data)
 
           const iframe = document.createElement("iframe");
           iframe.setAttribute("id", "kvalifikaIframe");
-          iframe.setAttribute("src", `${data.url}`);
+          // iframe.setAttribute("src",`http://localhost:3000?sessionId=${sessionId}`);
+          iframe.setAttribute("src",  data.url);
           iframe.setAttribute("style", "width: 100vw; height: 100vh");
           iframe.setAttribute("allow", "camera");
           iframe.setAttribute("allowfullscreen", true);
           iframe.setAttribute("scrolling", "yes");
 
-          const container = document.querySelector(
-            "#kvalifika-iframe-container"
-          );
+          const container = document.querySelector("#kvalifika-iframe-container");
           container.appendChild(iframe);
 
           // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
