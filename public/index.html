@@ -1,79 +1,58 @@
-<html>
-  <head>
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="KYC" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="./js/index.js"></script>
-    <script>
+  <script>
 
-      const generateVerification = async () => {
-        try {
-          const { data } = await axios({
-            url: "https://apidev.kvalifika.com/verification/generate",
-            method: "POST",
-            data: {
-              appId: "8c54701a-2a82-494c-ba27-bf53cee8aa08",
-            },
-            headers: {
-              Originn: "https://vobi.ge",
-            },
-          });
+    const generateVerification = async () => {
+      try {
 
-          console.log(data)
+        // console.log(data)
 
-          // const { data: pashaData } = await axios({
-          //   url: 'https://apistaging.kvalifika.com/verification/generate',
-          //   method: 'POST',
-          //   data: {
-          //     appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
-          //   },
-          //   headers: {
-          //     Originn: 'https://kyc.ge',
-          //   }
-          // })
+        const { data } = await axios({
+          url: 'https://api.kyc.ge/verification/generate',
+          method: 'POST',
+          data: {
+            appId: 'kstmxr9b',
+          },
+          headers: {
+            Originn: 'https://turbo.ge'
+          }
+        })
 
-          // console.log(pashaData)
 
-          const sessionId = data.url.split("=")[1]
-          console.log(sessionId)
-          // console.log(sessionId)
 
-          console.log(data.url)
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("id", "kvalifikaIframe");
+        iframe.setAttribute("src", `${data.url}`);
+        iframe.setAttribute("style", "width: 100vw; height: 100vh");
+        iframe.setAttribute("allow", "camera");
+        iframe.setAttribute("allowfullscreen", true);
+        iframe.setAttribute("scrolling", "yes");
 
-          console.log(data)
+        const container = document.querySelector("#kvalifika-iframe-container");
+        container.appendChild(iframe);
 
-          const iframe = document.createElement("iframe");
-          iframe.setAttribute("id", "kvalifikaIframe");
-          // iframe.setAttribute("src",`http://localhost:3000?sessionId=${sessionId}`);
-          iframe.setAttribute("src",  data.url);
-          iframe.setAttribute("style", "width: 100vw; height: 100vh");
-          iframe.setAttribute("allow", "camera");
-          iframe.setAttribute("allowfullscreen", true);
-          iframe.setAttribute("scrolling", "yes");
+      } catch (error) {
+        console.log(error)
+      }
+    };
 
-          const container = document.querySelector("#kvalifika-iframe-container");
-          container.appendChild(iframe);
 
-          // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
-          // document.getElementById('kvalifika-frame-container').appendChild(iframe)
-        } catch (error) {
-          console.log(error)
-        }
-      };
-      generateVerification();
-    </script>
-  </head>
+    generateVerification();
+  </script>
+</head>
 
-  <body style="margin: 0px">
-    <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-    <div id="kvalifika-iframe-container"></div>
-  </body>
+<body>
+  <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
+  <div id="kvalifika-iframe-container"></div>
+
+</body>
+
 </html>
