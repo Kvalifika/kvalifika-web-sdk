@@ -1,49 +1,56 @@
-<html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-    <script src="./js/index.js"></script>
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      const generateVerification = async () => {
+  <script>
+
+    const generateVerification = async () => {
+      try {
 
         const { data } = await axios({
           url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '_2erTMQlyEBww_t2OS_',
+            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
           },
           headers: {
-            Originn: 'https://dev.demo.kyc.ge',
+            Originn: 'https://dev.demo'
           }
         })
 
-        console.log(data)
 
-        // console.log(data)
 
-        const iframe = document.createElement('iframe')
-        iframe.setAttribute('id', 'kvalifikaIframe')
-        iframe.setAttribute('src', `https://dev.demo.kyc.ge/${data.url.split("/")[3]}`)
-        iframe.setAttribute('style', 'width: 100vw; height: 100vh')
-        iframe.setAttribute('allow', 'camera')
-        iframe.setAttribute('allowfullscreen', true)
-        
-        const container = document.querySelector("#kvalifika-iframe-container")
-        container.appendChild(iframe)
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("id", "kvalifikaIframe");
+        iframe.setAttribute("src", `${data.url}`);
+        iframe.setAttribute("style", "width: 100vw; height: 100vh");
+        iframe.setAttribute("allow", "camera");
+        iframe.setAttribute("allowfullscreen", true);
+        iframe.setAttribute("scrolling", "yes");
 
-        // document.querySelector("#kvalifika-frame-container").appendChild(iframe)
-        // document.getElementById('kvalifika-frame-container').appendChild(iframe)
+        const container = document.querySelector("#kvalifika-iframe-container");
+        container.appendChild(iframe);
 
+      } catch (error) {
+        console.log(error)
       }
-      generateVerification()
-    </script>
-  </head>
-  
-  <body style="margin:0px">
-    <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-    <div id="kvalifika-iframe-container">
+    };
 
-    </div>
-  </body>
+
+    generateVerification();
+  </script>
+</head>
+
+<body>
+  <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
+  <div id="kvalifika-iframe-container"></div>
+
+</body>
+
 </html>
