@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    /* 
+    
+      Modify Button Styles and pass your appId and secretKey
+    
+    */
+
+    window.kvalifikaButtonPayload = {
+      buttonText: "START VERIFICATION",
+      color: "black",
+      borderRadius: "5px",
+      backgroundColor:  "#8CC262;",
+      clientAppId: "acb883fe-69d6-4aca-9746-0301e25615a0",
+      clientOrigin: "https://dev.demo",
+      apiURL: "https://apidev.kvalifika.com/verification/generate"
+    }
+  </script>
+
+  <style>
+
+    /* 
+    
+        Adjust iframe as you wish.
+
+    */
+    #kvalifika-button { width: 100%; }
+
+  </style>
+</head>
+<body>
+  <h1> Client website. </h1>
+  <iframe id="kvalifika-button" class="kvalifika-button" src="./index.html" frameborder="0"></iframe>
+
+  <script>
+
+  </script>
+</body>
+</html>

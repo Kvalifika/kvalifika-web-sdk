@@ -5,46 +5,72 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+  <style>
 
-  <script>
+    #kvalifika-btn {
+      padding: 15px 60px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background-color: #8CC262;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.1s ease-in;
+    }
 
-    const generateVerification = async () => {
-      const { data } = await axios({
-        url: 'https://api.kyc.ge/verification/generate',
-        method: 'POST',
-        data: {
-          appId: '<YOUR APP ID>',
-        },
-        headers: {
-          Originn: '<YOUR ORIGIN>'
-        }
-      })
-
-
-
-      const iframe = document.createElement("iframe");
-      iframe.setAttribute("id", "kvalifikaIframe");
-      iframe.setAttribute("src", `${data.url}`);
-      iframe.setAttribute("style", "width: 100vw; height: 100vh");
-      iframe.setAttribute("allow", "camera");
-      iframe.setAttribute("allowfullscreen", true);
-      iframe.setAttribute("scrolling", "yes");
-      
-      const container = document.querySelector("#kvalifika-iframe-container");
-      container.appendChild(iframe);
-    };
-
-
-    generateVerification();
-  </script>
+    #kvalifika-btn:hover {
+      transition: all 0.1s ease-in;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 
 <body>
-  <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
-  <div id="kvalifika-iframe-container"></div>
+  <div class="kvalifika-btn-wrapper">
+    <button id="kvalifika-btn"> VERIFY ME </button>
+  </div>
 
+  <script>
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const kvalifikaButton = document.getElementById('kvalifika-btn')
+      const kvalifikaButtonPayload = window.parent.kvalifikaButtonPayload;
+
+      if (kvalifikaButtonPayload && Object.keys(kvalifikaButtonPayload).length) {
+        kvalifikaButton.style.cssText = `
+          color: ${kvalifikaButtonPayload.color || 'white'};
+          border-radius: ${kvalifikaButtonPayload.borderRadius || '5px'};
+          background-color: ${kvalifikaButtonPayload.backgroundColor || '$8CC262'};
+        `
+        kvalifikaButton.textContent = kvalifikaButtonPayload.buttonText || 'VERIFY ME'
+      }
+
+      async function generateVerification() {
+        const { data } = await axios({
+          url: kvalifikaButtonPayload && kvalifikaButtonPayload.apiURL || 'https://apidev.kvalifika.com/verification/generate',
+          method: 'POST',
+          data: {
+            appId: kvalifikaButtonPayload && kvalifikaButtonPayload.clientAppId || 'acb883fe-69d6-4aca-9746-0301e25615a0',
+          },
+          headers: {
+            Originn: kvalifikaButtonPayload && kvalifikaButtonPayload.clientOrigin || 'https://dev.demo'
+          }
+        })
+
+        return data
+      }
+
+      kvalifikaButton.addEventListener('click', async function () {
+        const data = await generateVerification()
+        window.open(data.url, '_blank', 'fullscreen=yes')
+      })
+    })
+  </script>
 </body>
 
 </html>
