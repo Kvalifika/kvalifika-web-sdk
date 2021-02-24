@@ -13,16 +13,14 @@
     const generateVerification = async () => {
       try {
 
-        // console.log(data)
-
         const { data } = await axios({
-          url: 'https://api.kyc.ge/verification/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'kstmxr9b',
+            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
           },
           headers: {
-            Originn: 'https://turbo.ge'
+            Originn: 'https://dev.demo'
           }
         })
 
