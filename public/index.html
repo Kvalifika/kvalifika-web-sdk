@@ -13,18 +13,27 @@
     const generateVerification = async () => {
       try {
 
+        // const { data } = await axios({
+        //   url: 'https://apidev.kvalifika.com/verification/generate',
+        //   method: 'POST',
+        //   data: {
+        //     appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+        //   },
+        //   headers: {
+        //     Originn: 'https://dev.demo'
+        //   }
+        // })
+
         const { data } = await axios({
-          url: 'https://apidev.kvalifika.com/verification/generate',
+          url: 'https://apistaging.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+            appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
           },
           headers: {
-            Originn: 'https://dev.demo'
+            Originn: 'https://rebank.ge'
           }
         })
-
-
 
         const iframe = document.createElement("iframe");
         iframe.setAttribute("id", "kvalifikaIframe");
