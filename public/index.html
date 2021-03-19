@@ -12,30 +12,53 @@
 
     const generateVerification = async () => {
       try {
-  //       liveness: number
-  // isKvalifikaDocument: boolean
-  // document: number
-  // lang: string
-  // is2DPhotoUploadEnabled: boolean
-  // successCallbackUrl: string
-  // errorCallbackUrl: string,
-  // documentUpload: boolean
+
+        const opts = {
+
+          // Liveness type. Kvalifika Supports 2D, 3D Liveness. 
+          // 0 - 3D Liveness
+          // 1 - 2D Liveness.
+          liveness: 0,
+
+          // Use or not kvalifika custom document UI
+          isKvalifikaDocument: true,
+
+          // For 2D Liveness we can skip specific parts of document section.
+          // 0 - renders selection screen for both ID and passport
+          // 1 - renders only ID screen
+          // 2 - renders only passport screen
+          // 3 - Skips document step
+          document: 0,
+
+          // Language. defaults to Georgian. possible values, en, ge
+          lang: 'en',
+
+          // Use or not document upload functionality insetad of camera.
+          is2DPhotoUploadEnabled: true,
+
+          // redirects window to success url once session finishes successfuly
+          successCallbackUrl: 'http://some-url',
+
+          // redirects window to error url once session fails
+          errorCallbackUrl: 'http://some-url'
+
+        }
 
         // Example 1. 2D Liveness with default document. camera
-        // const options = { 
-        //   liveness: 1,
-        //   isKvalifikaDocument: true,
-        //   is2DPhotoUploadEnabled: false
-        // }
+        const options = { 
+          liveness: 1,
+          isKvalifikaDocument: true,
+          is2DPhotoUploadEnabled: false
+        }
 
         
 
         // Example 2. 3D Session, on document step selects only id
-        const options = {
-          liveness: 0,
-          isKvalifikaDocument: false,
-          document: 3
-        }
+        // const options = {
+        //   liveness: 0,
+        //   isKvalifikaDocument: false,
+        //   document: 3
+        // }
 
 
         // Example 3. 2D Session with document upload instead of using camera
@@ -51,11 +74,11 @@
           url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '24d7ea7a-5096-421b-9d98-2cfb02678de2',
+            appId: '13ef9375-fbb2-402c-9f3c-f6d996428447',
             options
           },
           headers: {
-            Originn: 'https://kaxelo.com',
+            Originn: 'https://test.demo',
           }
         })
 
