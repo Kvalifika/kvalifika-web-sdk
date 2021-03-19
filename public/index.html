@@ -13,25 +13,14 @@
     const generateVerification = async () => {
       try {
 
-        // const { data } = await axios({
-        //   url: 'https://apidev.kvalifika.com/verification/generate',
-        //   method: 'POST',
-        //   data: {
-        //     appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
-        //   },
-        //   headers: {
-        //     Originn: 'https://dev.demo'
-        //   }
-        // })
-
         const { data } = await axios({
-          url: 'http://api.kvalifika.com/verification/generate',
+          url: 'http://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'pasha',
+            appId: '24d7ea7a-5096-421b-9d98-2cfb02678de2',
           },
           headers: {
-            Originn: 'https://kyc.ge'
+            Originn: 'https://kaxelo.com'
           }
         })
 
@@ -59,6 +48,7 @@
 <body>
   <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
   <div id="kvalifika-iframe-container"></div>
+  <!-- <iframe allow="camera" scrolling  allowfullscreen style="width: 100vw; height: 100vh;" src="https://turbo.kyc.ge/?sessionId=933a42cd-e575-42dc-84da-a910f31e8ad0"  frameborder="0"></iframe> -->
 
 </body>
 
