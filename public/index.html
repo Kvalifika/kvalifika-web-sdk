@@ -31,21 +31,21 @@
         
 
         // Example 2. 3D Session, on document step selects only id
-        // const options = {
-        //   liveness: 0,
-        //   isKvalifikaDocument: false,
-        //   document: 1
-        // }
+        const options = {
+          liveness: 0,
+          isKvalifikaDocument: false,
+          document: 3
+        }
 
 
         // Example 3. 2D Session with document upload instead of using camera
-        const options = {
-          liveness: 1,
-          isKvalifikaDocument: true,
-          is2DPhotoUploadEnabled: true,
-          document: 1,
-          lang: 'en'
-        }
+        // const options = {
+        //   liveness: 1,
+        //   isKvalifikaDocument: true,
+        //   is2DPhotoUploadEnabled: true,
+        //   document: 1,
+        //   lang: 'en'
+        // }
 
         const { data } = await axios({
           url: 'https://apidev.kvalifika.com/verification/generate',
