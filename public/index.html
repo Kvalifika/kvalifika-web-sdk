@@ -13,20 +13,31 @@
     const generateVerification = async () => {
       try {
 
+        const options = {
+          liveness: 0,
+          isKvalifikaDocument: false,
+          is2DPhotoUploadEnabled: false,
+          document: 0,
+          lang: 'en',
+          successCallbackUrl: 'https://www.kvalifika.com',
+          errorCallbackUrl: 'https://www.kvalifika.com'
+        }
+
         const { data } = await axios({
-          url: 'https://api.kyc.ge/verification/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'lUJvOmqrZC2dLYz5hjJ',
+            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+            options
           },
           headers: {
-            Originn: 'https://payunicard.ge',
+            Originn: 'https://test.demo',
           }
         })
 
         const iframe = document.createElement("iframe");
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", `https://browser.facetec.com/signin/index.html`);
+        iframe.setAttribute("src", `${data.url}`);
         iframe.setAttribute("style", "width: 100vw; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
