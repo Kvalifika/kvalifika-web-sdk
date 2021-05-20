@@ -30,9 +30,10 @@ window.addEventListener('message', async event => {
   
   // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
-    // 
-    // const body = await checkSession(event.data.sessionId);
-    // nextAction(body);
+
+    const body = await checkSession(event.data.sessionId);
+    console.log('Response Body', body)
+    nextAction(body);
   }
   
   // Checks if liveness step has been finished

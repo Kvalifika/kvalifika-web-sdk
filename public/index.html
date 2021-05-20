@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="./js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script>
@@ -13,16 +14,39 @@
     const generateVerification = async () => {
       try {
 
+        // const { data } = await axios({
+        //   url: 'http://api.kvalifika.com/verification/generate',
+        //   method: 'POST',
+        //   data: {
+        //     appId: '46e41747-3307-45cf-aba3-90fcde586a91',
+        //   },
+        //   headers: {
+        //     Originn: 'https://crystalbet.com',
+        //   }
+        // })
+
+        // const { data } = await axios({
+        //   url: 'https://apistaging.kvalifika.com/verification/generate',
+        //   method: 'POST',
+        //   data: {
+        //     appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
+        //   },
+        //   headers: {
+        //     Originn: 'https://pashabank.ge',
+        //   }
+        // })
+
         const { data } = await axios({
-          url: 'https://apistaging.kvalifika.com/verification/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '4a94a7af-a2bb-4859-8273-923442973a8c',
+            appId: '5310afaf-d22c-4cec-9e3a-3b5c5c5054eb',
           },
           headers: {
-            Originn: 'https://staging.demo',
+            Originn: 'https://crystalbet.com',
           }
         })
+
 
         const iframe = document.createElement("iframe");
         iframe.setAttribute("id", "kvalifikaIframe");
