@@ -8,7 +8,8 @@
 
 Seamless customer on-boarding through facial authentication
 
-To try out the end-user facing verification flow, simply navigate to [https://demo.kyc.ge](https://demo.kyc.ge) - this will start the verification flow in your browser.
+To try out the end-user facing verification flow, simply navigate to [https://admin.kvalifika.com](https://admin.kvalifika.com) 
+- After registrationyou can quickly generate one time instant verification link
 
 Kvalifika web SDK, is a simple and customisable library which helps to integrate with Kvalifika solution. 
 Use this to simply include Kvalifika flow. 
@@ -21,13 +22,15 @@ Visit our complete feature list to better know what we have for your business
 
 #### Getting started
 
-First you need to signup and get tokens your APP_ID and SECRET_TOKEN from http://admin.kvalifika.com
+First you need to signup and get tokens your APP_ID and SECRET_KEY from http://admin.kvalifika.com
 Tokens you can find Setting -> Security -> Credentials
 
 APP_ID you should use in index.html
-SECRET_TOKEN you should use in index.js file
+SECRET_KEY you should use in index.js file
 
 ##### Installing dependencies and launch sample application
+
+First navigate on example folder and launch commands below
 
 - Install dependencies ``` yarn  install```
 - Start project ``` yarn start ```
@@ -35,7 +38,7 @@ SECRET_TOKEN you should use in index.js file
 
 #### Files
 
--  ```.env``` Credentials for development & testing purposes  see : SECRET_TOKEN, KYC_API_HOST
+-  ```.env``` Credentials for development & testing purposes  see : SECRET_KEY, KYC_API_HOST
 -  ```public/index.html``` Kvalifika web iFrame loading
 -  ```public/js/index.js``` Handling session during onboarding process.
 -  ```index.js``` Backend implementation node.js sample to check session & close session for further calling
@@ -43,7 +46,7 @@ SECRET_TOKEN you should use in index.js file
 
 #### Kvalifika backend API 
 
-- https://api.kyc.ge/api/
+- https://api.kvalifika.com/api/
 
 #### Language support
 
@@ -51,7 +54,7 @@ Web iFrame supports now two languages you English and Georgian.
 You can manage it with lang parameter: en || geo
 
 ```html 
-https://demo.kyc.ge?lang=en
+https://main.app.kvalifika.com/?sessionId=<SESSION_ID>&lang=en
 ```
 #### Handling & listening Kvalifika web iFrame
 
