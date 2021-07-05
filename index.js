@@ -12,7 +12,7 @@ app.use(cors())
 
 app.use(express.static('public'))
 
-const Authorization = process.env.SECRET_TOKEN
+const Authorization = ''
 
 // Close identification data stored on Kvalifika server
 const requestClose = (sessionId) => {

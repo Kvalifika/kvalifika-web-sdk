@@ -26,24 +26,27 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 // If full process has been finished, you can check here 
 // each step if finished liveness or document scanning
 window.addEventListener('message', async event => {
-  console.log(event);
-  
+
   // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
-
-    const body = await checkSession(event.data.sessionId);
-    console.log('Response Body', body)
-    nextAction(body);
+    console.log('Session finished...')
   }
   
   // Checks if liveness step has been finished
   if (event.data.isLivenessFinished) {
   // Do something if liveness step has been finished
+    console.log(event)
+    console.log('Liveness passed')
   }
-  
-  // Checks is document scanning step has been finsihed
-  if (event.data.isDocumentFinished) {
-    // event.data.documentType returns enum type 'ID' or 'PASSPORT'
+
+  if (event.data.isDocumentScanFinished) {
+    const body = await checkSession(event.data.sessionId)
+    
+    // Personal numbers do not match!
+    if (body.info.personalNumber !== '13001066045') {
+      // TODO. Regenerate session
+    }
   }
+
 
 })

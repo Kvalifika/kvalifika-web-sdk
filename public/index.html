@@ -28,48 +28,23 @@
     const generateVerification = async () => {
       try {
 
-        // const { data } = await axios({
-        //   url: 'http://api.kvalifika.com/verification/generate',
-        //   method: 'POST',
-        //   data: {
-        //     appId: '46e41747-3307-45cf-aba3-90fcde586a91',
-        //   },
-        //   headers: {
-        //     Originn: 'https://crystalbet.com',
-        //   }
-        // })
-
-        // const { data } = await axios({
-        //   url: 'https://apistaging.kvalifika.com/verification/generate',
-        //   method: 'POST',
-        //   data: {
-        //     appId: '8985563d-35b1-4778-9adb-610a24f9c05e',
-        //   },
-        //   headers: {
-        //     Originn: 'https://pashabank.ge',
-        //   }
-        // })
-
         const { data } = await axios({
-          url: 'https://apidev.kvalifika.com/verification/generate',
+          url: 'https://apistaging.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '5310afaf-d22c-4cec-9e3a-3b5c5c5054eb',
-            options: {
-              successCallbackUrl: "https://www.kvalifika.com/",
-              errorCallbackUrl:"https://www.kvalifika.com/"
-            },
+            appId: '8d58c2ba-e758-43df-911d-2b1171766929',
           },
           headers: {
-            Originn: 'https://crystalbet.com',
+            Originn: 'https://turbo.demo',
           }
         })
 
-
+        const sessionId = data.url.split("=")[1]
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
         iframe.setAttribute("src", data.url);
+        iframe.setAttribute("src", `https://turbo.demo.kyc.ge/?sessionId=${sessionId}`)
         iframe.setAttribute("style", "width: 100vw; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
