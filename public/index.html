@@ -21,6 +21,24 @@
       padding: 0 !important;
       margin:  0 !important;
     }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: gray;
+      padding: 100px 0;
+ 
+    }
+
+    .sample {
+      width: 900px;
+      height: 1200px;
+      border: 1px solid red;
+    }
   </style>
 
   <script>
@@ -29,23 +47,27 @@
       try {
 
         const { data } = await axios({
-          url: 'https://apistaging.kvalifika.com/verification/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '8d58c2ba-e758-43df-911d-2b1171766929',
+            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+            options: {
+              lang: 'ge',
+              successCallbackUrl: 'https://www.kvalifika.com',
+              errorCallbackUrl: 'https://www.kvalifika.com'
+            }
           },
           headers: {
-            Originn: 'https://turbo.demo',
+            Originn: 'https://dev.demo',
           }
         })
-
+  
         const sessionId = data.url.split("=")[1]
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
         iframe.setAttribute("src", data.url);
-        iframe.setAttribute("src", `https://turbo.demo.kyc.ge/?sessionId=${sessionId}`)
-        iframe.setAttribute("style", "width: 100vw; height: 100vh");
+        iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
         iframe.setAttribute("scrolling", "yes");
@@ -60,13 +82,22 @@
 
 
     generateVerification();
+
+
   </script>
 </head>
 
 <body>
-  <!-- ხდება ფრეიმით ჩატვირთვა აპლიკაციის -->
   <div id="kvalifika-iframe-container"></div>
-
 </body>
+
+<script>
+  function handleMessage() {
+    if (event.data['task'] == 'scroll_top'){
+      window.scrollTo(0, 0);
+    }
+  }
+   window.addEventListener("message", handleMessage, false);
+</script>
 
 </html>

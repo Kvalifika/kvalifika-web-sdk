@@ -1,6 +1,7 @@
 
 // Performs a session check from your backend with your production SECRET_KEY
 // See index.js file
+// match confidence, using zoom?
 const checkSession = async (sessionId) => {
   const data = await fetch(`/check-session/${sessionId}`)
   const body = await data.json()
@@ -13,7 +14,6 @@ const checkSession = async (sessionId) => {
 // faceMatched is boolean if true face matched document
 // documentValid is boolean if true document is valid
 const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } }) => {
-
   // Handle your results & remove frame, or you can do anything here
   if (faceMatched && !livenessStatus && documentValid) {
     const p = document.createElement("p")
@@ -27,26 +27,21 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 // each step if finished liveness or document scanning
 window.addEventListener('message', async event => {
 
+  console.log('Event', event.data)
+
   // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
-    console.log('Session finished...')
+    console.log('Finished session')
   }
   
   // Checks if liveness step has been finished
   if (event.data.isLivenessFinished) {
-  // Do something if liveness step has been finished
-    console.log(event)
-    console.log('Liveness passed')
+    console.log('Finished Liveness')
   }
-
-  if (event.data.isDocumentScanFinished) {
-    const body = await checkSession(event.data.sessionId)
-    
-    // Personal numbers do not match!
-    if (body.info.personalNumber !== '13001066045') {
-      // TODO. Regenerate session
-    }
+  
+  // Checks is document scanning step has been finsihed
+  if (event.data.isDocumentFinished) {
+    console.log('Finished Document')
   }
-
 
 })

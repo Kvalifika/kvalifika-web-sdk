@@ -1,0 +1,676 @@
+{
+  "identity": {
+      "documentType": "ID", // მიიღებს ან ID ს ან PASSPORT მნიშვნელობებს
+
+      // სურათების ლინკები s3 დან, ვადა გასდის 15 წუთში, გვაქ ცალკე ეენდფოინთი დამატებით base 64 სურათების წაასაღებად.
+      "selfieImages": [
+          "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/2a750530-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=7c27149f191a15fc86567dd00aa111268c4ae37ecfbddac00226804b164a073b&X-Amz-SignedHeaders=host",
+          "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/2a755350-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=17332a1ad283b359bd5bfe0aaa191cd080dd6953a7896f1f921da4e4bc7f7c60&X-Amz-SignedHeaders=host",
+          "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/2a75a170-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=bde46a15cb5856b99af8df35d57668c298c025370d9196f80263829aed1158bc&X-Amz-SignedHeaders=host",
+          "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/2a75ef90-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=1ac85200951cd3f3fad273c24ed1b6d15b4e5b96e36a0ef693737bc87bf1af45&X-Amz-SignedHeaders=host",
+          "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/2a7616a0-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=f19c1852de7565f633a5ab823f7285058ee2b945f550dced5ccf27521a08c8a6&X-Amz-SignedHeaders=host"
+      ],
+      "backImageUrl": "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/3302a810-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=ea7139767e787c5ca9daa2e0432bbd2d707498138f2640f135a3590432205879&X-Amz-SignedHeaders=host",
+      "frontImageUrl": "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/tiktok/60f27354315e2f001c93faf5/32ea3e10-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWF33H5XKIPCA7PEA%2F20210721%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210721T125520Z&X-Amz-Expires=221&X-Amz-Signature=4ac84e65db2bb01cc4ba19945927d0782a9a4fe186ce9d6be819fe7e4dbc6b64&X-Amz-SignedHeaders=host"
+  },
+
+  "details": { 
+      "userAgent": {
+          "os": "Mac OS",
+          "browser": "Chrome",
+          "device": "PC",
+          "vendor": null,
+          "version": "10.15.7",
+          "model": null
+      },
+
+      // რამე იქსეფშენი თუ მოხდა შეინახება აქ.
+      "errorMessage": "None",
+
+      // სრულად ვალიდურია თუ არა მრზეტი
+      "isMrzValid": true,
+
+      // მცდელობების რაოდენობა, ლაივნესი + დოკუმენტი.
+      "attempts": 1,
+
+      // ლაივნესის მცდელობების რაოდენობა
+      "compareAttempts": 1,
+
+      // მომხმარებელი მივიდა მინიმუმ ლაივნესამდე, ამით ვფილტრავთ ჯანქ სესიებს ადმინკაში.
+      "isInteracting": true,
+
+      // სახის დამთხვევა მოხდა თუ არა დოკუმენტთან
+      "faceMatched": true,
+
+      // ამ ველით ვვარაუდობთ დოკუმენტი გაყალბებულია თუ არა, პროვაიდერი გვააძლევს 0 1 მნიშვნელობებს, 0 არის ვალიდური 1 ივარაუდება ყალბი დოკუმენტი
+      "digitalSpoofStatus": 0,
+
+      // ამ ველით ვარაუდობთ სრულია თუ არა ნაჩვენები დოკუმენტი, მოჭრილი ხომ არ არის მაგალითად. 0 სრული 1 არასრული
+      "fullIDStatus": 0,
+
+      // დოკუმენტი ვალიდურია თუ არა.
+      "documentValid": true,
+
+      // ლაივნესი ვალიდურია თუ არა, 0 ნიშნავს ვალიდურს 1 ნიშნავს არავალიდურს. საუბარია აღებულ ბიომეტრიაზე
+      "livenessStatus": 0,
+
+      // მრზ დეტალები, ყოველი ველი თავისი ვალიდურობის მნიშვნელობით.
+      "mrzDetails": [
+          {
+              "_id": "60f27388315e2f001c93fb39",
+              "label": "Document code",
+              "field": "documentCode",
+              "value": "ID",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb38",
+              "label": "Issuing state",
+              "field": "issuingState",
+              "value": "GEO",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb37",
+              "label": "Document number",
+              "field": "documentNumber",
+              "value": "18IB58947",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb36",
+              "label": "Document number check digit",
+              "field": "documentNumberCheckDigit",
+              "value": "1",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb35",
+              "label": "Optional field 1",
+              "field": "optional1",
+              "value": "13001066047",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb34",
+              "label": "Birth date",
+              "field": "birthDate",
+              "value": "950501",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb33",
+              "label": "Birth date check digit",
+              "field": "birthDateCheckDigit",
+              "value": "4",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb32",
+              "label": "Sex",
+              "field": "sex",
+              "value": "male",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb31",
+              "label": "Expiration date",
+              "field": "expirationDate",
+              "value": "281003",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb30",
+              "label": "Expiration date check digit",
+              "field": "expirationDateCheckDigit",
+              "value": "2",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb2f",
+              "label": "Nationality",
+              "field": "nationality",
+              "value": "GEO",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb2e",
+              "label": "Optional field 2",
+              "field": "optional2",
+              "value": "",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb2d",
+              "label": "Composite check digit",
+              "field": "compositeCheckDigit",
+              "value": "6",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb2c",
+              "label": "Last name",
+              "field": "lastName",
+              "value": "BATSIASHVILI",
+              "valid": true
+          },
+          {
+              "_id": "60f27388315e2f001c93fb2b",
+              "label": "First name",
+              "field": "firstName",
+              "value": "GIORGI",
+              "valid": true
+          }
+      ],
+
+      // მცდელობები, როცა მომხარებელმა გაიარა ლაივნესი + დოკუმენტი მაგრამ სისტემამ არ მიიღო და გადმოაგდო უკან მცდელობაზე
+      // ყოველი მცდელობისას ინახაბა ამ მცდელობის სრული ინფორმაცია, რა სურათი აჩვენა სახის დოკუმენტის დამთხვევა რამდენი იყო და ა.შ
+      "documentAttempts": [
+          {
+              "details": {
+                  "matchLevel": 7,
+                  "digitalSpoofStatus": 0,
+                  "fullIDStatus": 0,
+                  "livenessStatus": 0
+              },
+              "images": [
+                  "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/kvalifika-staging/tiktok/60f27354315e2f001c93faf5/32ea3e10-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ",
+                  "https://kvalifika-staging.s3.eu-central-1.amazonaws.com/kvalifika-staging/tiktok/60f27354315e2f001c93faf5/3302a810-e6c5-11eb-9830-87403f80a9bc./9j/4AAQSkZ"
+              ],
+              "_id": "60f27388315e2f001c93fb3a",
+              "success": true,
+              "data": {
+                  "error": null,
+                  "info": {
+                      "firstName": {
+                          "en": "GIORGI",
+                          "ge": ""
+                      },
+                      "lastName": {
+                          "en": "BATSIASHVILI",
+                          "ge": ""
+                      },
+                      "birthDate": "05-01-95",
+                      "expirationDate": "10-03-28",
+                      "sex": "male",
+                      "nationality": "GEO",
+                      "documentNumber": "18IB58947",
+                      "personalNumber": "13001066047",
+                      "mrzValid": true,
+                      "issueDate": "03.10.2018"
+                  },
+                  "mrzString": "IDGEO18IB58947113001066047<<<<9505014M2810032GEO<<<<<<<<<<<6BATSIASHVILI<<GIORGI<<<<<<<<<<",
+
+                  "mrzData": {
+                      "mrzDetails": [
+                          {
+                              "label": "Document code",
+                              "field": "documentCode",
+                              "value": "ID",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 0,
+                                      "start": 0,
+                                      "end": 2,
+                                      "raw": "ID"
+                                  }
+                              ],
+                              "line": 0,
+                              "start": 0,
+                              "end": 2
+                          },
+                          {
+                              "label": "Issuing state",
+                              "field": "issuingState",
+                              "value": "GEO",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 0,
+                                      "start": 2,
+                                      "end": 5,
+                                      "raw": "GEO"
+                                  }
+                              ],
+                              "line": 0,
+                              "start": 2,
+                              "end": 5
+                          },
+                          {
+                              "label": "Document number",
+                              "field": "documentNumber",
+                              "value": "18IB58947",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 0,
+                                      "start": 5,
+                                      "end": 14,
+                                      "raw": "18IB58947"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 14,
+                                      "end": 15,
+                                      "raw": "1"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 15,
+                                      "end": 30,
+                                      "raw": "13001066047<<<<"
+                                  }
+                              ],
+                              "line": 0,
+                              "start": 5,
+                              "end": 14
+                          },
+                          {
+                              "label": "Document number check digit",
+                              "field": "documentNumberCheckDigit",
+                              "value": "1",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 0,
+                                      "start": 14,
+                                      "end": 15,
+                                      "raw": "1"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 5,
+                                      "end": 14,
+                                      "raw": "18IB58947"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 15,
+                                      "end": 30,
+                                      "raw": "13001066047<<<<"
+                                  }
+                              ],
+                              "line": 0,
+                              "start": 14,
+                              "end": 15
+                          },
+                          {
+                              "label": "Optional field 1",
+                              "field": "optional1",
+                              "value": "13001066047",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 0,
+                                      "start": 15,
+                                      "end": 30,
+                                      "raw": "13001066047<<<<"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 5,
+                                      "end": 14,
+                                      "raw": "18IB58947"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 14,
+                                      "end": 15,
+                                      "raw": "1"
+                                  }
+                              ],
+                              "line": 0,
+                              "start": 15,
+                              "end": 26
+                          },
+                          {
+                              "label": "Birth date",
+                              "field": "birthDate",
+                              "value": "950501",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 0,
+                                      "end": 6,
+                                      "raw": "950501"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 0,
+                              "end": 6
+                          },
+                          {
+                              "label": "Birth date check digit",
+                              "field": "birthDateCheckDigit",
+                              "value": "4",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 6,
+                                      "end": 7,
+                                      "raw": "4"
+                                  },
+                                  {
+                                      "line": 1,
+                                      "start": 0,
+                                      "end": 6,
+                                      "raw": "950501"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 6,
+                              "end": 7
+                          },
+                          {
+                              "label": "Sex",
+                              "field": "sex",
+                              "value": "male",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 7,
+                                      "end": 8,
+                                      "raw": "M"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 7,
+                              "end": 8
+                          },
+                          {
+                              "label": "Expiration date",
+                              "field": "expirationDate",
+                              "value": "281003",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 8,
+                                      "end": 14,
+                                      "raw": "281003"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 8,
+                              "end": 14
+                          },
+                          {
+                              "label": "Expiration date check digit",
+                              "field": "expirationDateCheckDigit",
+                              "value": "2",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 14,
+                                      "end": 15,
+                                      "raw": "2"
+                                  },
+                                  {
+                                      "line": 1,
+                                      "start": 8,
+                                      "end": 14,
+                                      "raw": "281003"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 14,
+                              "end": 15
+                          },
+                          {
+                              "label": "Nationality",
+                              "field": "nationality",
+                              "value": "GEO",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 15,
+                                      "end": 18,
+                                      "raw": "GEO"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 15,
+                              "end": 18
+                          },
+                          {
+                              "label": "Optional field 2",
+                              "field": "optional2",
+                              "value": "",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 18,
+                                      "end": 29,
+                                      "raw": "<<<<<<<<<<<"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 18,
+                              "end": 18
+                          },
+                          {
+                              "label": "Composite check digit",
+                              "field": "compositeCheckDigit",
+                              "value": "6",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 1,
+                                      "start": 29,
+                                      "end": 30,
+                                      "raw": "6"
+                                  },
+                                  {
+                                      "line": 0,
+                                      "start": 5,
+                                      "end": 30,
+                                      "raw": "18IB58947113001066047<<<<"
+                                  },
+                                  {
+                                      "line": 1,
+                                      "start": 0,
+                                      "end": 7,
+                                      "raw": "9505014"
+                                  },
+                                  {
+                                      "line": 1,
+                                      "start": 8,
+                                      "end": 15,
+                                      "raw": "2810032"
+                                  },
+                                  {
+                                      "line": 1,
+                                      "start": 18,
+                                      "end": 29,
+                                      "raw": "<<<<<<<<<<<"
+                                  }
+                              ],
+                              "line": 1,
+                              "start": 29,
+                              "end": 30
+                          },
+                          {
+                              "label": "Last name",
+                              "field": "lastName",
+                              "value": "BATSIASHVILI",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 2,
+                                      "start": 0,
+                                      "end": 30,
+                                      "raw": "BATSIASHVILI<<GIORGI<<<<<<<<<<"
+                                  }
+                              ],
+                              "line": 2,
+                              "start": 0,
+                              "end": 12
+                          },
+                          {
+                              "label": "First name",
+                              "field": "firstName",
+                              "value": "GIORGI",
+                              "valid": true,
+                              "ranges": [
+                                  {
+                                      "line": 2,
+                                      "start": 0,
+                                      "end": 30,
+                                      "raw": "BATSIASHVILI<<GIORGI<<<<<<<<<<"
+                                  }
+                              ],
+                              "line": 2,
+                              "start": 14,
+                              "end": 20
+                          }
+                      ],
+
+                      // ეს ვეელები უშუალოდ mrz მკიტხველისგან მოდის
+                      "valid": true,
+                      "documentCode": "ID",
+                      "issuingState": "GEO",
+                      "documentNumber": "18IB58947",
+                      "documentNumberCheckDigit": "1",
+                      "optional1": "13001066047",
+                      "birthDate": "950501",
+                      "birthDateCheckDigit": "4",
+                      "sex": "male",
+                      "expirationDate": "281003",
+                      "expirationDateCheckDigit": "2",
+                      "nationality": "GEO",
+                      "optional2": "",
+                      "compositeCheckDigit": "6",
+                      "lastName": "BATSIASHVILI",
+                      "firstName": "GIORGI"
+                  },
+                  "frontImageText": "",
+                  "backImageText": "",
+
+                  // წინა მხრიდან როგორც ვთქვით ვკითხულობთ მხოლოდ personal number, document number ს
+                  "frontImageData": {
+                      "personalNumber": "13001066047",
+                      "documentNumber": "181858947"
+                  },
+                  "backImageData": {
+                      "dateOfIssue": "03.10.2018",
+                      "mrz": "GOOGLE MRZ - აქ იყო გუგლის MRZ :) "
+                  }
+              },
+              "createdAt": "2021-07-17T06:07:04.143Z",
+              "company": "601a558a5a69b1001de22031",
+              "verification": "60f27354315e2f001c93faf5",
+              "sessionId": "227e4d26-a11c-45a9-9dff-fe0362ff81b0"
+          }
+      ],
+      "clientIp": "212.58.120.254",
+      "location": {
+          "range": [
+              3560601600,
+              3560601855
+          ],
+          "country": "GE",
+          "region": "TB",
+          "eu": "0",
+          "timezone": "Asia/Tbilisi",
+          "city": "Tbilisi",
+          "ll": [
+              41.6959,
+              44.832
+          ],
+          "metro": 0,
+          "area": 100
+      },
+      "zoomSessionId": "67d58269-e6ed-40bb-8df1-fcacbd66d297",
+      "matchLevel": 7,
+      "levenshteinDiff": 0,
+      "usedThirdParty": false
+  },
+  "info": {
+      "firstName": {
+          "en": "GIORGI",
+          "ge": ""
+      },
+      "lastName": {
+          "en": "BATSIASHVILI",
+          "ge": ""
+      },
+      "birthDate": "05-01-95",
+      "expirationDate": "10-03-28",
+      "sex": "male",
+      "nationality": "GEO",
+      "documentNumber": "18IB58947",
+      "personalNumber": "13001066047",
+      "issueDate": "03.10.2018"
+  },
+
+  // რომელ გარემოში ჩავარდეს სესიაა, თუ sandbox app ის გამოიყენებტ გენერაციისთვის მიიღებს Sandbox მნიშვნელობას
+  // ადმინკაშსი ჩავარდება ტესტ სესიებში.
+  "environment": "Production",
+
+  // ხელით დაავერიფიცირა თუ არა ოპერატორმა
+  "manualVerified": false,
+
+  // ხელით დაარეჯექთა თუ არა ოპერატორმა
+  "manualRejected": false,
+
+  // ამ სესიაზე გამოთხივილი იქნა თუ არა სრული სურათები, base 64, მხოლოდ ერთხელ არის სურათების გამოთხოვის შესსაძლებლობა
+  "isImagesDownloaded": false,
+
+  // სესია ლიკვიდირებულია თუ არა.
+  "isLiquidated": false,
+
+  // ედიტირებულია თუ არა ოპერატორის მიერ, იგულისხმება ხელით ჩარევა როგოორიცაა სახელის შეცვლა გვარის და ა.შ
+  "edited": false,
+
+  // იგივე რაც liveness statuss ამოვიღებთ ამას.
+  "liveness": 0,
+  "tags": [],
+
+  // დოკუმენტის სთეფი დასრულდა თუ არა
+  "documentFinished": true,
+
+  // ლაივნესის სთეფი დასრულდა თუ არა
+  "livenessFinished": true,
+
+  // ყოველი სთეფის გავლა ილოგება ივენთებით.
+  "events": [
+      "LivenessPassed",
+      "DocumentPassed",
+      "SessionFinished"
+  ],
+
+  // ელოდება თუ არა სესია ხელით ჩარევას, ოპერატორისგან
+  "awaiting_action": false,
+
+  // საბოლოო სტატუსი ვერიფიცირებულია თუ არა, ამის კალკულაცია ხდება იმის მიხედვით თუ რა სეთინგებია დაყენებული.
+  "verified": true,
+  "checked": false,
+
+  // ბაზის id
+  "_id": "60f27354315e2f001c93faf5",
+
+  // სესიის უნიკალური აიდი, ამით იძებნება ადმინკაში
+  "sessionId": "227e4d26-a11c-45a9-9dff-fe0362ff81b0",
+  "createdAt": "2021-07-17T06:06:12.448Z",
+  "extra": [],
+
+  // სტატუს ველიც მაიდენტიფიცირებელია სესიის პროცესისს სრული გავლის, მიიღებს Not Finished თუ სესია გაწყდა ან არ დასრულდა წარმატებით
+  // verified როცა დასრულდა წარმატებით, expired soon დავამატებთ ამასაც.
+  "status": "Verified",
+
+  // დაეთანხმა მომხამრებელი, ფრონტზე ჩექბოქსის დაკლიკებით
+  "isAgreed": true,
+
+  // სესიიის დაწყების დრო
+  "startedAt": "2021-07-17T06:06:34.200Z",
+
+  // სესიის დასრულების დრო
+  "finishedAt": "2021-07-17T06:07:04.164Z"
+}
