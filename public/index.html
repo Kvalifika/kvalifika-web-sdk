@@ -50,24 +50,26 @@
           url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+            appId: 'XbONVazmosLGanqyRf14XgVyLGccajPz',
             options: {
-              lang: '',
-              lvienessType: 1
-            },
+              successCallbackUrl: 'https://www.kvalifika.com/?isSuccess=true',
+              errorCallbackUrl: 'https://www.kvalifika.com/?isSuccess=false'
+            }
           },
           headers: {
-            Originn: 'https://dev.demo',
+            Originn: 'https://test.demo',
           }
         })
   
         const sessionId = data.url.split("=")[1]
+        console.log(sessionId)
+
         const url = `https://newstep.app.kvalifika.com?sessionId=${sessionId}`
         console.log(url)
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", url);
+        iframe.setAttribute("src", data.url);
         iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
