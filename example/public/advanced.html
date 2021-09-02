@@ -93,6 +93,16 @@
       documentCaptureType: 2
     }
 
+    /* 
+      Optional data fields can be passed as extras. That will show up in admin panel
+      All the keys in extra object needs to be listed in extra section. see admin panel => extras.
+      For security if different extra field is provided it wont be saved.
+    */
+    const extras = {
+      phoneNumber:'130000',
+      personalNumber:'13000000'
+    }
+
     const generateVerification = async () => {
       const { data } = await axios({
         url: 'https://api.kyc.ge/verification/generate',
