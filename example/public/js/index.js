@@ -46,4 +46,19 @@ window.addEventListener('message', async event => {
     // event.data.documentType returns enum type 'ID' or 'PASSPORT'
   }
 
+  // Case when link is no longer valid
+  if (event.data.linkExpired) {
+    // TODO.re generate session
+  }
+
+  // Case when customer attempts has been expired.
+  if (event.data.expiredAttempts) {
+    // TODO.re generate session
+  } 
+
+  // Case when customer has already passed liveness, and tries again. we wont allow session retry, if liveness is already passed
+  if (event.data.isLivenessAlreadyPassed) {
+    // TODO.re generate session
+  }
+
 })
