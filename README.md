@@ -107,15 +107,20 @@ window.addEventListener('message', async event => {
   if (event.data.isDocumentFinished) {
     // event.data.documentType returns enum type 'ID' or 'PASSPORT'
   }
-  
-  // Checkes is session session has been closed
-  if (event.data.isClosed) {
-    
+
+  // Case when link is no longer valid
+  if (event.data.linkExpired) {
+    // TODO.re generate session
   }
-  
-  // checks if retry step has been closed
-  if (event.data.isRetryClosed) {
-    
+
+  // Case when customer attempts has been expired.
+  if (event.data.expiredAttempts) {
+    // TODO.re generate session
+  } 
+
+  // Case when customer has already passed liveness, and tries again. we wont allow session retry, if liveness is already passed
+  if (event.data.isLivenessAlreadyPassed) {
+    // TODO.re generate session
   }
 
 })
