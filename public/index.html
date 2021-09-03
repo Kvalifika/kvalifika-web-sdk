@@ -47,17 +47,13 @@
       try {
 
         const { data } = await axios({
-          url: 'https://apidev.kvalifika.com/verification/generate',
+          url: 'https://apistaging.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'XbONVazmosLGanqyRf14XgVyLGccajPz',
-            options: {
-              successCallbackUrl: 'https://www.kvalifika.com/?isSuccess=true',
-              errorCallbackUrl: 'https://www.kvalifika.com/?isSuccess=false'
-            }
+            appId: 'b7b29fc7-4141-4dd4-bd69-39a03eb82816',
           },
           headers: {
-            Originn: 'https://test.demo',
+            Originn: 'https://terabank.ge',
           }
         })
   
