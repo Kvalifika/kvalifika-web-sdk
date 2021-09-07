@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
   <script src="./js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -45,31 +46,34 @@
 
     const generateVerification = async () => {
       try {
-
+        options = {
+      kvalifikaDocument: true,
+      livenessType: 0,
+      sessionFlow: 1,
+    }
         const { data } = await axios({
           url: 'https://apistaging.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'b7b29fc7-4141-4dd4-bd69-39a03eb82816',
+            appId: '0ec49f6b-6824-4e35-98de-b17844fafc97',
+            options
           },
           headers: {
-            Originn: 'https://terabank.ge',
-          }
+            Originn: 'https://betlive.com',
+          },
         })
   
         const sessionId = data.url.split("=")[1]
-        console.log(sessionId)
-
         const url = `https://newstep.app.kvalifika.com?sessionId=${sessionId}`
         console.log(url)
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", data.url);
+        iframe.setAttribute("src",`${data.url}`);
         iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
-        iframe.setAttribute("scrolling", "yes");
+        iframe.setAttribute("scrolling", "no");
 
         const container = document.querySelector("#kvalifika-iframe-container");
         container.appendChild(iframe);
@@ -87,7 +91,25 @@
 </head>
 
 <body>
-  <div id="kvalifika-iframe-container"></div>
+  <h1>Kvalifika betlive testpage</h1>
+  <div class="box">
+      <a class="button" href="#popup1">Let me Pop up</a>
+  </div>
+  
+  <div id="popup1" class="overlay">
+      <div class="popup" >
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+              <div style="
+                width: 980px;
+                height: 600px;
+                display: block;
+                position: relative;
+              " 
+              id="kvalifika-iframe-container"></div>
+          </div>
+      </div>
+  </div>
 </body>
 
 <script>
