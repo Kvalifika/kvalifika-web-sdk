@@ -112,6 +112,16 @@ window.addEventListener('message', async event => {
   if (event.data.linkExpired) {
     // TODO.re generate session
   }
+  
+  // Checkes is session session has been closed
+  if (event.data.isClosed) {
+       //TODO
+  }
+   
+  // checks if retry step has been closed
+  if (event.data.isRetryClosed) {
+     // TODO 
+  }	 
 
   // Case when customer attempts has been expired.
   if (event.data.expiredAttempts) {
