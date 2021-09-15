@@ -87,6 +87,8 @@ body {
   .popup .content {
     max-height: 30%;
     overflow: auto;
+    justify-content: center;
+    background-color:red;
   }
 
   .popupiframe {
@@ -94,6 +96,7 @@ body {
     height: 600px;
     display: block;
     position: relative;
+    background-color:red;
   }
   
   @media screen and (max-width: 700px){
