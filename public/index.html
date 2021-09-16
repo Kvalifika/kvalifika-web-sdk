@@ -52,6 +52,7 @@
       sessionFlow: 1,
       lang:"ge",
       popup: 1,
+      isFirstPageShown: false,
     }
         const { data } = await axios({
           url: 'https://apidev.kvalifika.com/verification/generate',
@@ -69,7 +70,7 @@
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src",data.url);
+        iframe.setAttribute("src", data.url);
         iframe.setAttribute("style", "width: 100%; height: 100%");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
