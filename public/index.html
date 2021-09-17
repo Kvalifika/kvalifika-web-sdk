@@ -52,17 +52,16 @@
       sessionFlow: 1,
       lang:"ge",
       popup: 1,
-      isFirstPageShown: false,
     }
         const { data } = await axios({
-          url: 'https://apidev.kvalifika.com/verification/generate',
+          url: 'https://apistaging.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'acb883fe-69d6-4aca-9746-0301e25615a0',
+            appId: '0ec49f6b-6824-4e35-98de-b17844fafc97',
             options
           },
           headers: {
-            Originn: 'https://dev.demo',
+            Originn: 'https://betlive.com',
           },
         })
         const sessionId = data.url.split("=")[1]
