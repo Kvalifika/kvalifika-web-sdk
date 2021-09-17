@@ -9,13 +9,14 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script>
-
+    // See advnaced.html sample for more information
     const generateVerification = async () => {
       const { data } = await axios({
-        url: 'https://api.kyc.ge/verification/generate',
+        url: 'https://api.kvalifika.com/verification/generate',
         method: 'POST',
         data: {
           appId: '<YOUR APP ID>',
+          options: {}
         },
         headers: {
           Domain: '<YOUR ORIGIN>'
