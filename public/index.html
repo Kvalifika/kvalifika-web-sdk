@@ -66,7 +66,7 @@
           },
         })
         const sessionId = data.url.split("=")[1]
-        const url = `http://localhost:3001/?sessionId=${sessionId}`
+        const url = `http://localhost:3000/?sessionId=${sessionId}`
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
@@ -74,7 +74,7 @@
         iframe.setAttribute("style", "width: 100%; height: 100%");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
-        iframe.setAttribute("scrolling", "no");
+        iframe.setAttribute("scrolling", "yes");
 
         const container = document.querySelector("#kvalifika-iframe-container");
         container.appendChild(iframe);
@@ -92,19 +92,20 @@
 </head>
 
 <body>
-  <h1>Kvalifika betlive testpage</h1>
-  <div class="box">
-      <a class="button" href="#popup1">Let me Pop up</a>
+  <a href="#modal" class="modal-trigger">click popup</a>
+
+<div class="modal" id="modal">
+  <div class="modal__dialog">
+    <section class="modal__content">
+      <header class="modal__header">
+        <h2 class="modal__title">popup</h2>
+        <a href="#" class="modal__close">&times;</a>
+      </header>
+      <div class="modal__body">
+        <div class="popupiframe" id="kvalifika-iframe-container"></div>      </div>
+    </section>
   </div>
-  
-  <div id="popup1" class="overlay">
-      <div class="popup" >
-          <a class="close" href="#">&times;</a>
-          <div class="content">
-              <div class="popupiframe" id="kvalifika-iframe-container"></div>
-          </div>
-      </div>
-  </div>
+</div>
 </body>
 
 <script>

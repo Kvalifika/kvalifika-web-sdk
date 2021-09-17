@@ -1,126 +1,130 @@
-body {
-    font-family: Arial, sans-serif;
-    background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
-    background-size: cover;
-    height: 100vh;
-  }
-  
-  h1 {
-    text-align: center;
-    font-family: Tahoma, Arial, sans-serif;
-    color: #06D85F;
-    margin: 80px 0;
-  }
-  
-  .box {
-    width: 50%;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.2);
-    padding: 35px;
-    border: 2px solid #fff;
-    border-radius: 20px/50px;
-    background-clip: padding-box;
-    text-align: center;
-    
-  }
-  
-  .button {
-    font-size: 1em;
-    padding: 10px;
-    color: #fff;
-    border: 2px solid #06D85F;
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-  }
-  .button:hover {
-    background: #06D85F;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .popup {
-    margin: 70px auto;
-    
-    background: #fff;
-    border-radius: 5px;
-    width: 70%;
-    min-width: 980px;
-    min-height: 600px;
-    position: relative;
-    transition: all 5s ease-in-out;
-  }
-  
-  .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
-  .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-  .popup .close:hover {
-    color: #06D85F;
-  }
-  .popup .content {
-    max-height: 30%;
-    overflow: auto;
-    justify-content: center;
+html{
+	font-size:15px;
+ }
+ body{
+   font-family: "Helvetica", sans-serif;
+   width:94%;
+   margin: 0 auto;
+ }
+ *, *::after, *::before{
+   box-sizing: border-box;
+ }
+ .modal-trigger{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+   text-decoration: none;
+   padding:1rem;
+   background:#f93434;
+   display:inline-block;
+   border-radius:3px;
+   color:#fff;
+ }
+ .modal{
+   display:none;
+   background:rgba(0, 0, 0, .8);
+   position:fixed;
+   left:0;
+   top:0;
+   height:100%;
+   width:100%;
+ }
+ .modal:target{
+   display:table;
+ }
+ .modal__dialog{
+   display:table-cell;
+   vertical-align:middle;
+ }
+ 
+ .modal__content{
+   background:rgb(255, 255, 255);
+   width: 980px;
+   height: 650px;
+   margin:auto;
+   position:relative;
+   
+   animation: slideUp 0.3s ease-in-out;
+ }
+ 
+ .modal__header{
+   background:#2980b9;
+   color:rgba(255, 255, 255, 0.8);
+   padding:1rem;
+   position:relative;
+ }
+ .modal__title{
+   margin:0;
+ }
+ .modal__close{
+   color:#fff;
+   text-decoration: none;
+   position:absolute;
+   top:1rem;
+   right:1rem;
+ }
+ .modal__image{
+   display:block;
+   margin:1rem auto;
+ }
+ .modal__text{
+   padding:0 1rem;
+   line-height:1.5;
+ }
+ .modal__footer{
+   padding:1rem;
+   border-top:1px solid #ccc;
+ }
+
+ .modal__body {
+	 background-color:#2880B9;
+	 height: 98%;
+	 padding: 3px 3px 3px 3px;
+ }
+ .popupiframe {
+	 height: 100%;
+	 padding-bottom: 5px;
+ }
+ @keyframes slideUp{
+   from{
+	 opacity:0;
+	 bottom: -200px;
+   }
+   to{
+	 opacity:1;
+	 bottom:0;
+   }
+ }
+
+ @media screen and (max-width: 768px) {
+	.modal__content{
+		background:rgb(255, 255, 255);
+		width: 400px;
+		height: 650px;
+		margin:auto;
+		position:relative;
+		
+		animation: slideUp 0.3s ease-in-out;
+	  }
+
+	  .popupiframe {
+		  padding: 3px 3px 3px 3px;
+	  }
   }
 
-  .popupiframe {
-    width: 100%;
-    height: 620px;
-    display: block;
-    position: relative;
-  }
-  
-  @media screen and (max-width: 700px){
-    .box{
-      width: 70%;
-    }
-    .popup1{
-      width: 400px;
-      height: auto;
-    }
-    .popup{
-      width: 350px;
-      width: 300px;
-    }
-
-    .content {
-        height: 500px;
-        width: 400px;
-        padding: 5px 5px 5px 5px;
-        overflow: auto;
-        height: 600px;
-
-      }
-
-      .popupiframe {
-        width:  350px;
-        height: 550px;
-      }
+  @media screen and (max-width: 480px) {
+	.modal__content{
+		background:rgb(255, 255, 255);
+		width: 90%;
+		height: 80%;
+		margin:auto;
+		position:relative;
+		
+		animation: slideUp 0.3s ease-in-out;
+	  }
+	  .popupiframe {
+		padding: 3px 3px 3px 3px;
+	}
   }
