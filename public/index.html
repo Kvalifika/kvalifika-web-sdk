@@ -43,7 +43,7 @@
 
   <script>
 
-    const generateVerification = async () => {
+   const generateVerification = async () => {
       try {
 
         const { data } = await axios({
@@ -53,14 +53,13 @@
             appId: 'O4ux3V66iFRVwOSQey_',
           },
           headers: {
-            Originn: 'https://lb.ge',
+            domain: 'lb.ge',
           }
         })
   
-        const sessionId = data.url.split("=")[1]
-        console.log(sessionId)
+      //  const sessionId = data.url.split("=")[1]
+      //  console.log("sessionId" ,sessionId)
 
-        // const url = `https://newstep.app.kvalifika.com?sessionId=${sessionId}`
         console.log("Data : ", data)
 
         const iframe = document.createElement("iframe");
@@ -82,7 +81,6 @@
 
 
     generateVerification();
-
 
   </script>
 </head>
