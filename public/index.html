@@ -47,25 +47,26 @@
       try {
 
         const { data } = await axios({
-          url: 'https://apistaging.kvalifika.com/verification/generate',
+          url: 'https://api.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'b7b29fc7-4141-4dd4-bd69-39a03eb82816',
+            appId: 'O4ux3V66iFRVwOSQey_',
           },
           headers: {
-            Originn: 'https://terabank.ge',
+            Originn: 'https://lb.ge',
           }
         })
   
         const sessionId = data.url.split("=")[1]
         console.log(sessionId)
 
-        const url = `https://newstep.app.kvalifika.com?sessionId=${sessionId}`
-        console.log(url)
+        // const url = `https://newstep.app.kvalifika.com?sessionId=${sessionId}`
+        console.log("Data : ", data)
+
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", data.url);
+        iframe.setAttribute("src", `${data.url}`);
         iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
