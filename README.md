@@ -33,18 +33,18 @@ First navigate on example folder and launch commands below
 1. First you need to signup and get keys your APP_ID and SECRET_KEY from http://admin.kvalifika.com
 APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
 2. Write your CORS domain into Security -> CORS. ( Domain where you want to host your production or staging versions)
-3. Change index.html file change replace APP_ID and DOMAIN with your keys
-4. To test run ```yarn serve``` command and visit http://localhost 
+3. Change index.html file change replace APP_ID and DOMAIN with your variables
+4. For backend communication you need to change SECRET_KEY in index.js file
+5. To test run ```yarn start``` command and visit http://localhost:8080 
 
-5. For backend communication you need to change SECRET_KEY in index.js file
+##### Take note for hosted version you need to SSL ( https://)
 
 #### Files
 
--  ```.env``` Credentials for development & testing purposes  see : SECRET_KEY, KYC_API_HOST
--  ```public/index.html``` Kvalifika web iFrame loading simple example
--  ```public/advanced.html``` Kvalifika web iFrame loading advanced  example with several options
--  ```public/js/index.js``` Handling session during onboarding process.
--  ```index.js``` Backend implementation node.js sample to check session & close session for further calling
+-  ```example/public/index.html``` Kvalifika web iFrame loading simple example
+-  ```example/public/advanced.html``` Kvalifika web iFrame loading advanced  example with several options
+-  ```example/public/js/index.js``` Handling session during onboarding process.
+-  ```example/index.js``` Backend implementation node.js sample to check session & close session for further calling
 
 
 #### Kvalifika backend API 
@@ -53,8 +53,8 @@ APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
 
 #### Language support
 
-Web iFrame supports now two languages you English and Georgian.
-You can manage it with lang parameter: en || geo
+Web iFrame supports now two languages you English, Georgian, Spanish and Russian
+You can manage it with lang parameter: en, geo, ru, sp
 
 ```html 
 https://main.app.kvalifika.com/?sessionId=<SESSION_ID>&lang=en

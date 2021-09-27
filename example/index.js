@@ -12,12 +12,12 @@ app.use(cors())
 
 app.use(express.static('public'))
 
-const Authorization = process.env.SECRET_KEY
+const Authorization = '<SECRET_KEY>'
 
 // Close identification data stored on Kvalifika server
 const requestClose = (sessionId) => {
   const closeOptions = {
-    url: `${process.env.KYC_API_HOST}/verification/close/${sessionId}`,
+    url: `https://api.kvalifika.com/verification/close/${sessionId}`,
     method: "POST",
     headers: { Authorization }
   };
@@ -39,7 +39,7 @@ app.get('/check-session/:sessionId', (req, res) => {
   // in options we need to pass sessionId as parameter
   // and our secret token as authorization header
   const options = {
-    url: `${process.env.KYC_API_HOST}/verification/session-data/${sessionId}`,
+    url: `https://api.kvalifika.com/verification/session-data/${sessionId}`,
     headers: { Authorization }
   };
 
