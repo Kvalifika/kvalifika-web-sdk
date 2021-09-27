@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+
+   const generateVerification = async () => {
+      try {
+
+        const { data } = await axios({
+          url: 'https://api.kvalifika.com/verification/generate',
+          method: 'POST',
+          data: {
+            appId: '<APP_ID>',
+          },
+          headers: {
+            domain: '<DOMAIN>',
+          }
+        })
+  
+    
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("id", "kvalifikaIframe");
+        iframe.setAttribute("src", `${data.url}`);
+        iframe.setAttribute("style", "width: 100%; height: 100vh");
+        iframe.setAttribute("allow", "camera");
+        iframe.setAttribute("allowfullscreen", true);
+        iframe.setAttribute("scrolling", "yes");
+
+        const container = document.querySelector("#kvalifika-iframe-container");
+        container.appendChild(iframe);
+
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+
+    generateVerification();
+
+  </script>
+</head>
+
+<body>
+  <div id="kvalifika-iframe-container"></div>
+</body>
+
+
+</html>

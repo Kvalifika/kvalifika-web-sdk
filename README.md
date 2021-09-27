@@ -20,14 +20,6 @@ We Also provide a web iFrame solution for best integration into your web app.
 Visit our complete feature list to better know what we have for your business
 [Feature list](https://github.com/Kvalifika/kvalifika-web-sdk/blob/master/documentation/Features.md)
 
-#### Getting started
-
-First you need to signup and get tokens your APP_ID and SECRET_KEY from http://admin.kvalifika.com
-Tokens you can find Setting -> Security -> Credentials
-
-APP_ID you should use in index.html
-SECRET_KEY you should use in index.js file
-
 ##### Installing dependencies and launch sample application
 
 First navigate on example folder and launch commands below
@@ -36,10 +28,21 @@ First navigate on example folder and launch commands below
 - Start project ``` yarn start ```
 
 
+#### Getting started. How to start Iframe sample?
+
+1. First you need to signup and get keys your APP_ID and SECRET_KEY from http://admin.kvalifika.com
+APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
+2. Write your CORS domain into Security -> CORS. ( Domain where you want to host your production or staging versions)
+3. Change index.html file change replace APP_ID and DOMAIN with your keys
+4. To test run ```yarn serve``` command and visit http://localhost 
+
+5. For backend communication you need to change SECRET_KEY in index.js file
+
 #### Files
 
 -  ```.env``` Credentials for development & testing purposes  see : SECRET_KEY, KYC_API_HOST
--  ```public/index.html``` Kvalifika web iFrame loading
+-  ```public/index.html``` Kvalifika web iFrame loading simple example
+-  ```public/advanced.html``` Kvalifika web iFrame loading advanced  example with several options
 -  ```public/js/index.js``` Handling session during onboarding process.
 -  ```index.js``` Backend implementation node.js sample to check session & close session for further calling
 

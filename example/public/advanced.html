@@ -110,11 +110,11 @@
         url: 'https://api.kyc.ge/verification/generate',
         method: 'POST',
         data: {
-          appId: '<YOUR APP ID>',
+          appId: 'O4ux3V66iFRVwOSQey_',
           options,
         },
         headers: {
-          Domain: '<YOUR ORIGIN>'
+          domain: 'lb.ge'
         }
       })
 
@@ -142,5 +142,16 @@
   <div id="kvalifika-iframe-container"></div>
 
 </body>
+
+<script>
+  function handleMessage() {
+    console.log("Event", event.data['task'])
+    // Scrol top event sample
+    if (event.data['task'] == 'scroll_top'){
+      window.scrollTo(0, 0);
+    }
+  }
+   window.addEventListener("message", handleMessage, false);
+</script>
 
 </html>
