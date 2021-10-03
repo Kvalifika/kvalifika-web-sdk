@@ -9,94 +9,14 @@
   <script src="./js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <style>
-
-
-    .kyc-iframe {
-      border: none !important;
-
-    }
-
-    body {
-      padding: 0 !important;
-      margin:  0 !important;
-    }
-
-    .container {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: gray;
-      padding: 100px 0;
  
-    }
-
-    .sample {
-      width: 900px;
-      height: 1200px;
-      border: 1px solid red;
-    }
-  </style>
-
-  <script>
-
-   const generateVerification = async () => {
-      try {
-
-        const { data } = await axios({
-          url: 'https://api.kvalifika.com/verification/generate',
-          method: 'POST',
-          data: {
-            appId: 'O4ux3V66iFRVwOSQey_',
-          },
-          headers: {
-            domain: 'lb.ge',
-          }
-        })
-  
-      //  const sessionId = data.url.split("=")[1]
-      //  console.log("sessionId" ,sessionId)
-
-        console.log("Data : ", data)
-
-        const iframe = document.createElement("iframe");
-        iframe.setAttribute('class', 'kyc-iframe')
-        iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", `${data.url}`);
-        iframe.setAttribute("style", "width: 100%; height: 100vh");
-        iframe.setAttribute("allow", "camera");
-        iframe.setAttribute("allowfullscreen", true);
-        iframe.setAttribute("scrolling", "yes");
-
-        const container = document.querySelector("#kvalifika-iframe-container");
-        container.appendChild(iframe);
-
-      } catch (error) {
-        console.log(error)
-      }
-    };
-
-
-    generateVerification();
-
-  </script>
 </head>
 
 <body>
-  <div id="kvalifika-iframe-container"></div>
+  <a href="test?appId=3847837483748734jhdfjhdfjh"> This is test link </a>
+
 </body>
 
-<script>
-  function handleMessage() {
-    console.log("Event", event.data['task'])
-    if (event.data['task'] == 'scroll_top'){
-      window.scrollTo(0, 0);
-    }
-  }
-   window.addEventListener("message", handleMessage, false);
-</script>
+
 
 </html>
