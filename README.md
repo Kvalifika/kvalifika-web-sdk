@@ -37,7 +37,7 @@ APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
 4. For backend communication you need to change SECRET_KEY in index.js file
 5. To test run ```yarn start``` command and visit http://localhost:8080 
 
-##### Take note for hosted version you need to SSL ( https://)
+<p style='color:red; font-size:20px'>Take note for hosted version you need to SSL ( https://) </p>
 
 #### Files
 
