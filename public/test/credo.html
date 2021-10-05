@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./js/index.js"></script>
+  <script src="js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <style>
@@ -50,22 +50,17 @@
           url: 'https://api.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: 'O4ux3V66iFRVwOSQey_',
+            appId: 'a73e3ac9-1660-42e4-947d-0bb998c0e37d',
           },
           headers: {
-            domain: 'lb.ge',
+            domain: 'mycredo.ge',
           }
         })
   
-        //    console.log("Data : ", data)
-
-        const qrCodeUrl  = 'http://yoururl.com/test'
-    
-
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", `${data.url}&qrCodeUrl=${qrCodeUrl}`);
+        iframe.setAttribute("src", `${data.url}`);
         iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
         iframe.setAttribute("allowfullscreen", true);
