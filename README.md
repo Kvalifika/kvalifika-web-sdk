@@ -106,7 +106,7 @@ window.addEventListener('message', async event => {
   }
   
   // Checkes is session session has been closed
-  if (event.data.isClosed) {
+  if (event.data.isClose) {
     
   }
   
