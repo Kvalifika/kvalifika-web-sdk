@@ -57,18 +57,16 @@
           }
         })
   
-       //  const sessionId = data.url.split("=")[1]
-       //  console.log("sessionId" ,sessionId)
-
-        console.log("Data : ", data)
+     
+     //    console.log("Data : ", data)
+        const qrCodeUrl  = 'http://lb.ge/ibank/?app=1111111'
 
         const iframe = document.createElement("iframe");
         iframe.setAttribute('class', 'kyc-iframe')
         iframe.setAttribute("id", "kvalifikaIframe");
-        iframe.setAttribute("src", `${data.url}`);
+        iframe.setAttribute("src", `${data.url}?qrCodeUrl=${qrCodeUrl}`);
         iframe.setAttribute("style", "width: 100%; height: 100vh");
         iframe.setAttribute("allow", "camera");
-       // iframe.setAttribute("qrcodeurl", 'http://lb.ge/ibank/?app=34873487dfhjdfh');
         iframe.setAttribute("allowfullscreen", true);
         iframe.setAttribute("scrolling", "yes");
 
@@ -80,8 +78,6 @@
       }
     };
 
-    const qrCodeUrl  = 'http://lb.ge/ibank/?app=1111111'
-    window.QR_CODE_URL  = 'http://lb.ge/ibank/?app=222222'
     generateVerification();
 
   </script>
