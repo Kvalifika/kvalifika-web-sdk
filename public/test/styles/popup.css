@@ -1,0 +1,130 @@
+html{
+	font-size:15px;
+ }
+ body{
+   font-family: "Helvetica", sans-serif;
+   width:94%;
+   margin: 0 auto;
+ }
+ *, *::after, *::before{
+   box-sizing: border-box;
+ }
+ .modal-trigger{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+   text-decoration: none;
+   padding:1rem;
+   background:#f93434;
+   display:inline-block;
+   border-radius:3px;
+   color:#fff;
+ }
+ .modal{
+   display:none;
+   background:rgba(0, 0, 0, .8);
+   position:fixed;
+   left:0;
+   top:0;
+   height:100%;
+   width:100%;
+ }
+ .modal:target{
+   display:table;
+ }
+ .modal__dialog{
+   display:table-cell;
+   vertical-align:middle;
+ }
+ 
+ .modal__content{
+   background:rgb(255, 255, 255);
+   width: 980px;
+   height: 650px;
+   margin:auto;
+   position:relative;
+   
+   animation: slideUp 0.3s ease-in-out;
+ }
+ 
+ .modal__header{
+   background:#2980b9;
+   color:rgba(255, 255, 255, 0.8);
+   padding:1rem;
+   position:relative;
+ }
+ .modal__title{
+   margin:0;
+ }
+ .modal__close{
+   color:#fff;
+   text-decoration: none;
+   position:absolute;
+   top:1rem;
+   right:1rem;
+ }
+ .modal__image{
+   display:block;
+   margin:1rem auto;
+ }
+ .modal__text{
+   padding:0 1rem;
+   line-height:1.5;
+ }
+ .modal__footer{
+   padding:1rem;
+   border-top:1px solid #ccc;
+ }
+
+ .modal__body {
+	 background-color:#2880B9;
+	 height: 98%;
+	 padding: 3px 3px 3px 3px;
+ }
+ .popupiframe {
+	 height: 100%;
+	 padding-bottom: 5px;
+ }
+ @keyframes slideUp{
+   from{
+	 opacity:0;
+	 bottom: -200px;
+   }
+   to{
+	 opacity:1;
+	 bottom:0;
+   }
+ }
+
+ @media screen and (max-width: 768px) {
+	.modal__content{
+		background:rgb(255, 255, 255);
+		width: 400px;
+		height: 650px;
+		margin:auto;
+		position:relative;
+		
+		animation: slideUp 0.3s ease-in-out;
+	  }
+
+	  .popupiframe {
+		  padding: 3px 3px 3px 3px;
+	  }
+  }
+
+  @media screen and (max-width: 480px) {
+	.modal__content{
+		background:rgb(255, 255, 255);
+		width: 90%;
+		height: 80%;
+		margin:auto;
+		position:relative;
+		
+		animation: slideUp 0.3s ease-in-out;
+	  }
+	  .popupiframe {
+		padding: 3px 3px 3px 3px;
+	}
+  }

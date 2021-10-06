@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/popup.css" />
+    <title>Document</title>
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      .kyc-iframe {
+        border: none !important;
+      }
+
+      body {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: gray;
+        padding: 100px 0;
+      }
+
+      .sample {
+        width: 900px;
+        height: 1200px;
+        border: 1px solid red;
+      }
+    </style>
+
+    <script>
+      const generateVerification = async () => {
+        try {
+          options = {
+            kvalifikaDocument: false,
+            livenessType: 0,
+            documentType: 3,
+            sessionFlow: 0,
+            lang: "en",
+            popup: 1,
+          };
+          const { data } = await axios({
+            url: "https://api.kvalifika.com/verification/generate",
+            method: "POST",
+            data: {
+              appId: "yd-FZ8fw3Yx3OpxF4wA",
+              options,
+            },
+            headers: {
+              domain: "https://kyc.ge",
+            },
+          });
+
+          // const sessionId = data.url.split("=")[1];
+          // const url = `http://localhost:3000/?sessionId=${sessionId}`;
+
+          const iframe = document.createElement("iframe");
+          iframe.setAttribute("class", "kyc-iframe");
+          iframe.setAttribute("id", "kvalifikaIframe");
+          iframe.setAttribute("src", data.url);
+          iframe.setAttribute("style", "width: 100%; height: 100%");
+          iframe.setAttribute("allow", "camera");
+          iframe.setAttribute("allowfullscreen", true);
+          iframe.setAttribute("scrolling", "yes");
+
+          const container = document.querySelector(
+            "#kvalifika-iframe-container"
+          );
+          container.appendChild(iframe);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      generateVerification();
+    </script>
+  </head>
+
+  <body>
+    <a href="#modal" class="modal-trigger">click popup</a>
+
+    <div class="modal" id="modal">
+      <div class="modal__dialog">
+        <section class="modal__content">
+          <header class="modal__header">
+            <h2 class="modal__title">popup</h2>
+            <a href="#" class="modal__close">&times;</a>
+          </header>
+          <div class="modal__body">
+            <div class="popupiframe" id="kvalifika-iframe-container"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const iframe = document.getElementsByClassName("popup");
+    function handleMessage() {
+      console.log("Event", event.data["task"]);
+      if (event.data["task"] == "scroll_top") {
+        window.scrollTo(0, 0);
+        iframe.scrollTo = 0;
+        console.log("scrolled");
+      }
+    }
+    window.addEventListener("message", handleMessage, false);
+  </script>
+</html>
