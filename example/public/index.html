@@ -26,6 +26,9 @@
           }
         })
   
+        // NOTE: If you want custom QR code url in iframe you can pass url in src as query parameter 
+        /* const qrCodeUrl  = 'http://yourqrcodeurl.com'
+        iframe.setAttribute("src", `${data.url}&qrCodeUrl=${qrCodeUrl}`); */
     
         const iframe = document.createElement("iframe");
         iframe.setAttribute("id", "kvalifikaIframe");
