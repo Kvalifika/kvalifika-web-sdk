@@ -41,10 +41,6 @@
       const generateVerification = async () => {
         try {
           options = {
-            kvalifikaDocument: false,
-            livenessType: 0,
-            documentType: 3,
-            sessionFlow: 0,
             lang: "en",
             popup: 1,
           };
@@ -52,11 +48,11 @@
             url: "https://api.kvalifika.com/verification/generate",
             method: "POST",
             data: {
-              appId: "yd-FZ8fw3Yx3OpxF4wA",
+              appId: "7c047946-d73d-4ecf-8e87-7b5093244171",
               options,
             },
             headers: {
-              domain: "https://kyc.ge",
+              domain: "https://test.kyc.ge",
             },
           });
 
