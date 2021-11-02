@@ -49,7 +49,8 @@ app.get('/check-session/:sessionId', (req, res) => {
       // handle error
       res.status(400).json(err)
     } else {
-      requestClose(sessionId)
+       // NOTE : Here you can close /session-data endpoint for further execution
+      // requestClose(sessionId)
       res.status(200).json(body)
     }
   })
