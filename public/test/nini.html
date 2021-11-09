@@ -47,13 +47,20 @@
       try {
 
         const { data } = await axios({
-          url: 'http://localhost:8000/verification/generate',
+          url: 'https://apidev.kvalifika.com/verification/generate',
           method: 'POST',
           data: {
-            appId: '98f6b6d8-143f-4618-bd63-46f8d9a6887c',
+            appId: 'be1f577f-0e4c-4032-b2b0-175ad0f8301e',
+            options: {
+              kvalifikaDocument: false,
+              livenessType: 0,
+              documentType: 3,
+              sessionFlow: 0,
+              lang: "en"
+            }
           },
           headers: {
-            Originn: 'https://betlive.com',
+            domain: 'kyc.ge',
           }
         })
   
