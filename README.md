@@ -115,6 +115,11 @@ window.addEventListener('message', async event => {
     
   }
 
+  // Checks if liveness step has been failed, because facetec attempts run out.
+  if (event.data.livenessStepFailed) {
+    // TODO.re generate session
+  }
+
 })
 ```
 

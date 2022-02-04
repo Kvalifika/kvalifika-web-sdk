@@ -73,6 +73,13 @@ window.addEventListener("message", async (event) => {
   // Case when customer has already passed liveness, and tries again. we wont allow session retry, if liveness is already passed
   if (event.data.isLivenessAlreadyPassed) {
     // TODO.re generate session
-    console.log('isLivenessAlreadyPassed') 
+    console.log('isLivenessAlreadyPassed')
   }
+
+  // Case when customer fails on liveness step.
+  if (event.data.livenessStepFailed) {
+    // TODO.re generate session
+    console.log('livenessStepFailed')
+  }
+
 });
