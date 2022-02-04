@@ -137,6 +137,11 @@ window.addEventListener('message', async event => {
     // TODO.re generate session
   }
 
+  // Case when customer failed on liveness step and liveness attempts run out
+  if (event.data.livenessStepFailed) {
+    // TODO.re generate session
+  }
+
 })
 ```
 
