@@ -28,19 +28,19 @@ const nextAction = ({ details: { faceMatched, livenessStatus, documentValid } })
 // If full process has been finished, you can check here 
 // each step if finished liveness or document scanning
 window.addEventListener('message', async event => {
-  
+
   // Checks if full process liveness and document scanning has been finished
   if (event.data.finished) {
     // 
     const body = await checkSession(event.data.sessionId)
     nextAction(body)
   }
-  
+
   // Checks if liveness step has been finished
   if (event.data.isLivenessFinished) {
-  // Do something if liveness step has been finished
+    // Do something if liveness step has been finished
   }
-  
+
   // Checks is document scanning step has been finsihed
   if (event.data.isDocumentFinished) {
     // event.data.documentType returns enum type 'ID' or 'PASSPORT'
@@ -54,10 +54,15 @@ window.addEventListener('message', async event => {
   // Case when customer attempts has been expired.
   if (event.data.expiredAttempts) {
     // TODO.re generate session
-  } 
+  }
 
   // Case when customer has already passed liveness, and tries again. we wont allow session retry, if liveness is already passed
   if (event.data.isLivenessAlreadyPassed) {
+    // TODO.re generate session
+  }
+
+  // Case when customer failed on liveness step and liveness attempts run out
+  if (event.data.livenessStepFailed) {
     // TODO.re generate session
   }
 
