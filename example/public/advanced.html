@@ -10,51 +10,68 @@
 
   <script>
 
-    /* 
-       Liveness step only. document will be skipped
-       !! Note. documentType can also take 0, 1, 2. it controlls whats get shown to end user on document selection step
-       0 - Both ID and PASSPORT will be shown
-       1 - Only ID will be shown 
-       2 - Only passport will be shown
-       3 - Hide document step.
-    */
+    // This is every option to customize your verification process.
+    // if some of these options are not set, default values will be used.
+    // which is set from admin panel.
+    //
+    // livenessType: 0 || 1,
+    // successCallbackUrl: 'successCallbackUrl',
+    // errorCallbackUrl: 'errorCallbackUrl',
+    // lang: 'ge' || 'en' || 'ru' || 'sp',
+    // documentCaptureType: 1 || 2 || 3 || 4,
+    // isIdCardSelected: true || false,
+    // isPassportSelected: true || false,
+    // isResidenceCardSelected: true || false,
+    // isDriverLicenseSelected: true || false,
+    // sessionFlow: 0 || 1,
+    // isFirstPageShown: true || false,
+    // maxSessionLength: 'max length is not limited',
+    // popup: 0 || 1,
+
+    /**
+     * Liveness step only. document will be skipped
+     */
     let options = {
-      livenessType: 0,  //  0 - 3D , 1 - 2D  , 
-      documentType: 3,
-      kvalifikaDocument: true,
+      livenessType: 0,         //  0 - 3D , 1 - 2D
+      documentCaptureType: 3   // 0-Capture; 1-Upload; 2-Both; 3-Skip Document Step
     }
 
-    /* 
-       Kvalifika document step with 3D liveness type.
-    */
+    /**
+     * Session where document options will be ID and PASSPORT.
+     */
     options = {
-      kvalifikaDocument: true,
-      livenessType: 0,
+      isIdCardSelected: true,
+      isPassportSelected: true,
+      isResidenceCardSelected: false,
+      isDriverLicenseSelected: false,
     }
 
-
-    /* 
-       Kvalifika document step with 2D liveness type.
-    */
+    /**
+     * Session with 3D liveness type.
+     */
     options = {
-      kvalifikaDocument: true,
+      livenessType: 0,  //  0 - 3D , 1 - 2D
+    }
+
+    /**
+     * Session with 2D liveness type.
+     */
+    options = {
       livenessType: 1,
     }
 
-    /* 
-       Kvalifika document step with Liveness First session direction.
-    */
+    /**
+     * Session with 2D liveness type and Liveness First session direction
+     */
     options = {
-      kvalifikaDocument: true,
       livenessType: 1,
-      sessionFlow: 0,
+      sessionFlow: 0  // 0 - Liveness First, 1 - Document First
     }
 
-    /* 
-       Kvalifika document step with document First session direction
-    */
+    /**
+     * Session with 2D liveness type and document First session direction
+     */
     options = {
-      kvalifikaDocument: true,
       livenessType: 1,
       sessionFlow: 1,
     }
@@ -74,7 +91,7 @@
       Available language inputs en | ge | ru | sp
     */
     options = {
-      lang: 'en' 
+      lang: 'en'
     }
 
     /* 
@@ -85,24 +102,13 @@
     }
 
     /* 
-      Kvalifika document with only file upload.
-      documentCaptureType allows client to controll what to show to end user.
-      for instance allow user to use default browser camera for taking document pictures, or allow file upload, or native
-      camera picker
-    */
-    options = {
-      kvalifikaDocument: true,
-      documentCaptureType: 2
-    }
-
-    /* 
       Optional data fields can be passed as extras. That will show up in admin panel
       All the keys in extra object needs to be listed in extra section. see admin panel => extras.
       For security if different extra field is provided it wont be saved.
     */
     const extras = {
-      phoneNumber:'130000',
-      personalNumber:'13000000'
+      phoneNumber: '130000',
+      personalNumber: '13000000'
     }
 
     const generateVerification = async () => {
@@ -127,7 +133,7 @@
       iframe.setAttribute("allow", "camera");
       iframe.setAttribute("allowfullscreen", true);
       iframe.setAttribute("scrolling", "yes");
-      
+
       const container = document.querySelector("#kvalifika-iframe-container");
       container.appendChild(iframe);
     };
@@ -147,11 +153,11 @@
   function handleMessage() {
     console.log("Event", event.data['task'])
     // Scrol top event sample
-    if (event.data['task'] == 'scroll_top'){
+    if (event.data['task'] == 'scroll_top') {
       window.scrollTo(0, 0);
     }
   }
-   window.addEventListener("message", handleMessage, false);
+  window.addEventListener("message", handleMessage, false);
 </script>
 
 </html>
