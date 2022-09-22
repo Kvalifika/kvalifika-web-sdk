@@ -10,6 +10,47 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
+
+  <script>
+    const generateVerification = async () => {
+      const response = await fetch('https://apidev.cactusverify.com/verification/generate', {
+        method: 'POST',
+        headers: {
+          'Domain': 'https://leo.com',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          appId: '3bdf9c72-8c74-402e-865c-45a3e76e404d',
+          options: {
+            lang: 'en',
+            maxSessionLength: 5,
+            livenessType: 0,
+          },
+        })
+      })
+      const data = await response.json()
+      const cactusverifyLinkContainer = document.querySelector('#cactusverify__container')
+      const cactusverifyLink = document.createElement('a')
+      cactusverifyLink.style.width = '100px'
+      cactusverifyLink.style.margin = '5px'
+      cactusverifyLink.setAttribute('href', data.url + '&lang=en')
+      cactusverifyLink.setAttribute('target', '_blank')
+      cactusverifyLink.style.textDecoration = 'none'
+      cactusverifyLink.style.padding = '10px 30px'
+      cactusverifyLink.style.display = 'flex'
+      cactusverifyLink.style.flexDirection = 'row'
+      cactusverifyLink.style.justifyContent = 'center'
+      cactusverifyLink.style.alignItems = 'center'
+      cactusverifyLink.style.color = 'white'
+      cactusverifyLink.style.backgroundColor = '#163B50'
+      cactusverifyLink.style.borderRadius = '3px'
+      cactusverifyLink.textContent = 'Verify'
+      cactusverifyLinkContainer.appendChild(cactusverifyLink)
+    };
+    generateVerification()
+  </script>
+
 </head>
 
 <body>
@@ -23,6 +64,8 @@
   <a href="/test/swissCap.html">Swiss Cap</a></br>
   <a href="/test/betlive.html">Betlive</a></br>
   <a href="/test/newPopup.html">new Popup</a></br>
+
+  <div id="cactusverify__container"></div>
 
 </body>
 
