@@ -26,7 +26,7 @@
 
 The Kvalifika API is based on REST principles. It uses standard HTTP response codes and verbs, and token-based authentication.
 The API uses token-based authentication. API tokens must be included in the header of all requests made to the API.
-[https://api-staging.kyc.ge/api/](https://api-staging.kyc.ge/api/)
+[https://api.kvalifika.com/api/](https://api.kvalifika.com/api/)
 
 - SSL Trafic
 Our all servers use SSL certificates enabling https traffic.
