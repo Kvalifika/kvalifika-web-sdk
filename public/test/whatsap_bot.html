@@ -186,7 +186,7 @@
         };
 
         const { data } = await axios({
-          url: "https://apidev.cactusverify.com/verification/whatsapp-bot",
+          url: "https://api.cactusverify.com/verification/whatsapp-bot",
           method: "POST",
           data: {
             body: JSON.stringify(formToSubmit),
@@ -194,7 +194,7 @@
         });
 
         if (data) {
-          alert("send successfuly, to view session result please visit https://develop.admin.cactusverify.com and use the email specified in the form to log in");
+          alert("send successfuly, to view session result please visit https://admin.cactusverify.com and use the email specified in the form to log in");
         } else {
           alert("error, check console");
         }
