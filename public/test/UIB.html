@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Whatsap Bot</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        min-height: 100%;
+      }
+      body,
+      div,
+      form,
+      input,
+      select,
+      p {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 16px;
+        color: #eee;
+      }
+      h1,
+      .main-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 25px;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .left-part,
+      form {
+        padding: 25px;
+      }
+      .left-part {
+        text-align: center;
+      }
+      .fa-graduation-cap {
+        font-size: 72px;
+      }
+      form {
+        width: 500px;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+      }
+      input,
+      select {
+        padding: 5px;
+        margin-bottom: 30px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+      input::placeholder {
+        color: #eee;
+      }
+      option:focus {
+        border: none;
+      }
+      option {
+        background: black;
+        border: none;
+      }
+      .checkbox input {
+        margin: 0 10px 0 0;
+        vertical-align: middle;
+      }
+      .checkbox a {
+        color: #26a9e0;
+      }
+      .checkbox a:hover {
+        color: #85d6de;
+      }
+      .btn-item,
+      button {
+        padding: 10px 5px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: none;
+        background: #26a9e0;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+      }
+      .btn-item {
+        display: inline-block;
+        margin: 20px 5px 0;
+      }
+      button:hover,
+      .btn-item:hover {
+        background: #85d6de;
+      }
+
+      .main-text {
+        width: 500px;
+      }
+
+      .button1 {
+        width: 150px !important;
+      }
+
+      @media (min-width: 568px) {
+        html,
+        body {
+          height: 100%;
+        }
+        .left-part,
+        form {
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <h2 class="main-text">
+        Please visit <a href="https://wa.me/6584069017">this page</a> and send
+        some random message to us or open whatsapp application and message to
+        +658406901
+      </h2>
+      <h2 class="main-text">
+        then type your number with country code and submit
+      </h2>
+      <input
+        id="number"
+        type="text"
+        name="name"
+        placeholder="Reciever Phone number"
+      />
+      <button id="button1" type="submit">submit</button>
+    </div>
+  </body>
+  <script>
+    const submit = async (e) => {
+      try {
+        e.preventDefault();
+        const number = document.getElementById("number").value;
+        const res = await axios({
+          url: "http://whatsapp-bot-prod.eba-zuqzbvt3.eu-central-1.elasticbeanstalk.com/uib-send",
+          method: "POST",
+          data: { number }
+        });
+
+        if (res.data) {
+          alert("send successfuly");
+        } else {
+          alert("error, check console");
+          console.log(res);
+        }
+      } catch (error) {
+        console.log(error);
+        alert("error");
+      }
+    };
+
+    document.getElementById("button1").addEventListener("click", submit);
+  </script>
+</html>
