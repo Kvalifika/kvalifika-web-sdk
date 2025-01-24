@@ -1,6 +1,6 @@
 
 <p align="left">
-  <a href="http://kvalifika.com/" target="blank"><img src="https://landen.imgix.net/bdgkclkkfohb/assets/6crsydul.png?w=244" alt="Kvalifika logo" /></a>
+  <a href="http://kvalifika.ge/" target="blank"><img src="https://landen.imgix.net/bdgkclkkfohb/assets/6crsydul.png?w=244" alt="Kvalifika logo" /></a>
 </p>
 
 
@@ -8,7 +8,7 @@
 
 Seamless customer on-boarding through facial authentication
 
-To try out the end-user facing verification flow, simply navigate to [https://admin.kvalifika.com](https://admin.kvalifika.com) 
+To try out the end-user facing verification flow, simply navigate to [https://admin.kvalifika.ge](https://admin.kvalifika.ge) 
 - After registrationyou can quickly generate one time instant verification link
 
 Kvalifika web SDK, is a simple and customisable library which helps to integrate with Kvalifika solution. 
@@ -30,7 +30,7 @@ First navigate on example folder and launch commands below
 
 #### Getting started. How to start Iframe sample?
 
-1. First you need to signup and get keys your APP_ID and SECRET_KEY from http://admin.kvalifika.com
+1. First you need to signup and get keys your APP_ID and SECRET_KEY from http://admin.kvalifika.ge
 APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
 2. Write your CORS domain into Security -> CORS. ( Domain where you want to host your production or staging versions)
 3. Change index.html file change replace APP_ID and DOMAIN with your variables
@@ -50,7 +50,7 @@ APP_ID and SECRET_KEY  you can find Setting -> Security -> Credentials
 
 #### Kvalifika backend API 
 
-- https://api.kvalifika.com/api/
+- https://api.kvalifika.ge/api/
 
 #### Language support
 
@@ -58,7 +58,7 @@ Web iFrame supports now two languages you English, Georgian, Spanish and Russian
 You can manage it with lang parameter: en, geo, ru, sp
 
 ```html 
-https://main.app.kvalifika.com/?sessionId=<SESSION_ID>&lang=en
+https://main.app.kvalifika.ge/?sessionId=<SESSION_ID>&lang=en
 ```
 #### Handling & listening Kvalifika web iFrame
 
@@ -148,4 +148,4 @@ window.addEventListener('message', async event => {
 
 ### Contact us
 
-Got any questions? Don't hesitate to reach out @ [kvalifika.com](https://kvalifika.com)
+Got any questions? Don't hesitate to reach out @ [kvalifika.ge](https://kvalifika.ge)
